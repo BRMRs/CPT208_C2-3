@@ -137,8 +137,14 @@ section:nth-child(even) {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+}
+
+@media (max-width: 640px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .member-card {
@@ -317,10 +323,6 @@ footer {
         align-items: center;
         padding: 1rem;
         gap: 0.8rem;
-    }
-    
-    .team-grid {
-        grid-template-columns: 1fr;
     }
     
     section {
