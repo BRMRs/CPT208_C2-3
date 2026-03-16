@@ -1,0 +1,16 @@
+# Sisyphus
+.sisyphus/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# AI Logs
+ai-logs/
+
+# Temporary files
+*.tmp
+*.log
+
+# Example/reference files (not needed for deployment)
+user_persona_example.png

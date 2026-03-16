@@ -1,5 +1,0 @@
-=== Task 2 Verification ===
-PASS: file exists
-PASS: 2 personas found
-PASS: no Chinese
-Climb mentions: 15

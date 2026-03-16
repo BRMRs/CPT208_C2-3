@@ -67,6 +67,9 @@ h2::after {
 
 header {
     background-color: var(--color-bg-header);
+    background-image: linear-gradient(rgba(26, 31, 46, 0.7), rgba(26, 31, 46, 0.6)), url('assets/images/rockclimbingwall-background.png');
+    background-size: cover;
+    background-position: center;
     color: var(--color-text-light);
     padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
