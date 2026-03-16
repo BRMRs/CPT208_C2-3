@@ -234,7 +234,6 @@ section:nth-child(even) {
 }
 
 .persona-avatar {
-    font-size: 5rem;
     width: 210px;
     height: 280px;
     display: flex;
@@ -244,14 +243,24 @@ section:nth-child(even) {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     margin-bottom: 1rem;
-    overflow: hidden;
+    overflow: hidden;           /* 确保溢出隐藏 */
+    position: relative;         /* 添加相对定位 */
+    flex-shrink: 0;            /* 防止在flex容器中被压缩 */
 }
 
-.persona-avatar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+/* 修复图片样式 - 使用更具体的选择器 */
+.persona-avatar img,
+.persona-avatar .persona-avatar-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    /* 移除可能导致问题的属性 */
+    max-width: none !important;
+    min-width: 0 !important;
+    max-height: none !important;
+    min-height: 0 !important;
 }
 
 .persona-caption {
