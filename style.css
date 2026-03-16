@@ -192,79 +192,288 @@ section:nth-child(even) {
     color: #555;
 }
 
-.persona-card {
-    background-color: var(--color-bg-persona);
-    border-left: 6px solid var(--color-accent-primary);
-    border-radius: 0 12px 12px 0;
-    padding: 2.5rem;
+/* ===== Rich Persona Cards ===== */
+.persona-card-rich {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
     margin-bottom: 3rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-.persona-card:last-child {
+.persona-card-rich:last-child {
     margin-bottom: 0;
 }
 
-.persona-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 2px solid rgba(0,0,0,0.05);
+.persona-banner {
+    background-color: var(--color-accent-primary);
+    color: white;
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: bold;
 }
 
-.emoji-avatar {
-    font-size: 4rem;
-    line-height: 1;
-    background: white;
-    width: 100px;
-    height: 100px;
+.persona-name {
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.persona-body {
+    display: grid;
+    grid-template-columns: 240px 1fr 260px;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.persona-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.persona-avatar {
+    font-size: 5rem;
+    width: 140px;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    background: var(--color-bg-body);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.persona-caption {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+}
+
+.persona-profile {
+    border: 2px solid var(--color-accent-primary);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.persona-profile p {
+    margin-bottom: 0.4rem;
+    color: var(--color-text-main);
+}
+
+.persona-profile strong {
+    color: var(--color-accent-primary);
+}
+
+.persona-personality {
+    width: 100%;
+    text-align: left;
+}
+
+.persona-personality h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-accent-primary);
+    margin-bottom: 0.8rem;
+}
+
+.personality-slider {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.75rem;
+    color: #555;
+}
+
+.personality-slider span {
+    min-width: 55px;
     flex-shrink: 0;
 }
 
-.persona-header h3 {
-    margin: 0;
-    font-size: 1.8rem;
-    color: var(--color-bg-header);
+.personality-slider span:last-child {
+    text-align: right;
 }
 
-.persona-section {
-    margin-bottom: 2rem;
+.slider-track {
+    flex: 1;
+    height: 8px;
+    background: #e0ddd8;
+    border-radius: 4px;
+    position: relative;
 }
 
-.persona-section:last-child {
-    margin-bottom: 0;
+.slider-marker {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: var(--color-accent-secondary);
+    border-radius: 3px;
 }
 
-.persona-section h4 {
-    color: var(--color-accent-secondary);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: var(--font-body);
+.persona-center {
+    display: flex;
+    flex-direction: column;
 }
 
-.persona-section h5 {
-    font-size: 1.1rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--color-bg-header);
+.persona-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.persona-section ul {
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
+.tag {
+    background: var(--color-accent-primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
-.persona-section li {
-    margin-bottom: 0.5rem;
+.persona-goals,
+.persona-frustrations {
+    margin-bottom: 1.5rem;
+}
+
+.persona-goals h4,
+.persona-frustrations h4,
+.persona-bio h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-accent-primary);
+    margin-bottom: 0.6rem;
+}
+
+.persona-goals ul,
+.persona-frustrations ul {
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.persona-goals li,
+.persona-frustrations li {
+    margin-bottom: 0.3rem;
+}
+
+.persona-bio {
+    background: #f0ede8;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-top: auto;
+}
+
+.persona-bio p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.persona-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.persona-bars {
+    margin-bottom: 1.5rem;
+}
+
+.persona-bars h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-accent-primary);
+    margin-bottom: 0.8rem;
+}
+
+.bar-item {
+    margin-bottom: 0.6rem;
+}
+
+.bar-item span {
+    display: block;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 0.2rem;
+}
+
+.bar-track {
+    height: 10px;
+    background: #e0ddd8;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--color-accent-primary);
+    border-radius: 5px;
+}
+
+.bar-fill.secondary {
+    background: var(--color-accent-secondary);
+}
+
+@media (max-width: 960px) {
+    .persona-body {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    .persona-left {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        text-align: left;
+        align-items: flex-start;
+    }
+    .persona-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 3.5rem;
+    }
+    .persona-caption {
+        flex: 1;
+        min-width: 150px;
+    }
+    .persona-profile {
+        width: auto;
+        flex: 1;
+        min-width: 200px;
+    }
+    .persona-personality {
+        width: auto;
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 640px) {
+    .persona-body {
+        grid-template-columns: 1fr;
+        padding: 1.2rem;
+        gap: 1rem;
+    }
+    .persona-left {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .persona-banner {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.2rem;
+    }
 }
 
 #references ol {
@@ -297,15 +506,6 @@ footer {
     
     h2 {
         font-size: 2rem;
-    }
-    
-    .persona-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .persona-card {
-        padding: 1.5rem;
     }
     
     nav ul {
