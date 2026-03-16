@@ -272,9 +272,8 @@ section:nth-child(even) {
 }
 
 #tech-reflection p {
-    margin-bottom: 1.5rem;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 1.5rem auto;
 }
 
 footer {
