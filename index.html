@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Climbers — CPT208 C2-3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Go Climbers</h1>
+            <p>CPT208 Group C2-3 · Process Portfolio</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#personas">User Personas</a></li>
+            <li><a href="#references">AI References</a></li>
+            <li><a href="#tech-reflection">Technical Reflection</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Welcome to Go Climbers</h2>
+                <p>Go Climbers is a mobile and wearable app designed for the climbing community. It enables climbers to find partners at their skill level, book certified coaches, discover nearby climbing venues, and track their performance using wearable devices.</p>
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="container">
+                <h2>Our Team</h2>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <img src="assets/images/rui.jpg" alt="Rui Zheng">
+                        <h3>Rui Zheng</h3>
+                        <p class="student-id">ID: 2362065</p>
+                        <p class="intro">My name is Rui Zheng, and I'm from Hangzhou, China — yes, the city with the beautiful West Lake, the home of Alibaba, and also... the place where I learned how to look calm while secretly panicking. In our team, I proudly hold the title of: Chief Last-Minute Expert! Now, you might be thinking: "Last-Minute Expert? That sounds like a polite way of saying 'professional procrastinator'." And... yeah, fair point.</p>
+                    </div>
+                    <div class="member-card">
+                        <img src="assets/images/tian.jpg" alt="Jiutian Chang">
+                        <h3>Jiutian Chang</h3>
+                        <p class="student-id">ID: 2362412</p>
+                        <p class="intro">Born in Zhengzhou. Libra ⚖️ | Chief Overthinking Officer. Powered by curiosity and an endless debate between "this one" or "that one".</p>
+                    </div>
+                    <div class="member-card">
+                        <img src="assets/images/xian.jpg" alt="Zhixian Zhou">
+                        <h3>Zhixian Zhou</h3>
+                        <p class="student-id">ID: 2360690</p>
+                        <p class="intro">Leo 🦁 | Chief Late-Night Officer. Powered by pure curiosity and chronic sleep deprivation.</p>
+                    </div>
+                    <div class="member-card">
+                        <img src="assets/images/xiao.jpg" alt="Xinyi Xiao">
+                        <h3>Xinyi Xiao</h3>
+                        <p class="student-id">ID: 2363303</p>
+                        <p class="intro">Chief Anxiety Officer (CAO), Janja Garnbret self-shipper.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="personas">
+            <div class="container">
+                <h2>User Personas</h2>
+                
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <span class="emoji-avatar">🧗‍♀️</span>
+                        <h3>Emma Chen — Entry-Level White-Collar Female Climber</h3>
+                    </div>
+                    
+                    <div class="persona-section">
+                        <h4>Background</h4>
+                        <p>Emma Chen is a 28-year-old marketing coordinator living in Shanghai, where she works a standard 9:00 AM to 6:00 PM office schedule with occasional campaign deadlines that push later into the evening. She discovered indoor climbing three months ago at a friend's birthday event and now visits a local bouldering gym once a week, usually after work or on Sunday mornings. Emma is still in the beginner stage and can complete only basic routes, so she wants more structured support and clearer feedback to feel less overwhelmed during sessions.</p>
+                    </div>
+                    
+                    <div class="persona-section">
+                        <h4>Behaviors, Pain Points & Goals</h4>
+                        
+                        <h5>Current Behaviors</h5>
+                        <p>Emma plans her climbing sessions around work fatigue and transit time, so she prefers nearby gyms that she can reach within 30 minutes after leaving the office. She typically climbs alone unless a friend is available, and when she arrives at the gym she warms up quickly, attempts familiar beginner routes, then hesitates to try harder problems because she is unsure about technique. She records workouts in Apple Health and sometimes uploads runs and cycling sessions to Strava, but her climbing activity is either missing or manually logged with very limited detail. She watches short climbing tutorials on social platforms during her commute, saves tips about footwork and body positioning, then forgets to apply them consistently at the wall. On busy weeks, she skips climbing entirely because coordinating with friends through chat groups takes too long and often fails at the last minute.</p>
+                        
+                        <h5>Pain Points</h5>
+                        <ul>
+                            <li>She feels intimidated when climbing near advanced groups and worries that asking for help will make her look inexperienced.</li>
+                            <li>Finding partners at the same skill level is unreliable because general messaging groups are noisy and plans are frequently canceled.</li>
+                            <li>Booking beginner coaching sessions is frustrating: available time slots are scattered across different gym channels and often full before she can confirm.</li>
+                            <li>She cannot clearly measure improvement in climbing-specific metrics, so she struggles to stay motivated when progress feels invisible.</li>
+                            <li>Her evening availability is narrow, and by the time she finishes work and commuting, many desirable sessions are no longer available.</li>
+                            <li>She wants safe, beginner-appropriate introductions to outdoor bouldering but does not know whom to trust or where to start.</li>
+                        </ul>
+                        
+                        <h5>Goals & Motivations</h5>
+                        <ul>
+                            <li>Build technical confidence so she can attempt intermediate routes without anxiety.</li>
+                            <li>Find a consistent climbing circle with similar schedules and beginner-friendly attitudes.</li>
+                            <li>Learn core skills such as precise foot placement, efficient body positioning, and fall technique within the next three months.</li>
+                            <li>Use objective fitness and climbing progress data to stay accountable and celebrate small wins.</li>
+                            <li>Transition from indoor-only sessions to a safe first outdoor bouldering trip within a year.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="persona-section">
+                        <h4>Usage Scenario</h4>
+                        <p>On a Wednesday evening, Emma opens Go Climbers as she leaves the office and uses matchmaking to join a beginner pair session at a gym near her subway stop. She confirms a 45-minute intro coaching slot and receives route recommendations matched to her current level before she arrives. During the session, her smartwatch syncs climb attempts and heart-rate trends, and the app summarizes where she lost efficiency on overhang moves. On the ride home, she shares her progress card to her social feed and schedules another session for the weekend while motivation is still high.</p>
+                    </div>
+                </div>
+
+                <div class="persona-card">
+                    <div class="persona-header">
+                        <span class="emoji-avatar">🧗‍♂️</span>
+                        <h3>Marcus Li — Professional Climbing Coach</h3>
+                    </div>
+                    
+                    <div class="persona-section">
+                        <h4>Background</h4>
+                        <p>Marcus Li is a 38-year-old certified climbing coach (PCSC Level 2) based in Beijing, where he splits his week between two climbing gyms and manages a demanding schedule of private and small-group sessions. With more than 12 years of climbing experience, he coaches roughly 15 to 20 clients each week, ranging from absolute beginners to intermediate climbers preparing for local competitions. Marcus is respected for his technical instruction and safety focus, but his backend workflow is fragmented, leaving less time for high-quality coaching and long-term program design.</p>
+                    </div>
+                    
+                    <div class="persona-section">
+                        <h4>Behaviors, Pain Points & Goals</h4>
+                        
+                        <h5>Current Behaviors</h5>
+                        <p>Marcus spends mornings organizing appointment requests, afternoons coaching at Gym A, and evenings either coaching at Gym B or replying to client messages about rescheduling. Most of his booking communication happens through WhatsApp and WeChat threads, while attendance and payment status are tracked in spreadsheets that require frequent manual updates. For performance monitoring, he asks clients to share screenshots from different wearable apps, then tries to combine heart-rate patterns, session duration, and climb attempts into practical feedback during training. He also relies on each gym's internal software for route availability and facility constraints, but those systems are isolated and cannot provide a unified view of his week. Marcus occasionally posts short technique clips to attract new clients, yet he lacks a professional discovery channel where beginners can evaluate credentials, compare coaching styles, and book immediately.</p>
+                        
+                        <h5>Pain Points</h5>
+                        <ul>
+                            <li>Managing bookings across two venues through chat apps creates scheduling conflicts, duplicate confirmations, and preventable no-shows.</li>
+                            <li>Student progress records are fragmented across spreadsheets, wearable screenshots, and memory, making longitudinal coaching analysis inefficient.</li>
+                            <li>He loses potential clients because there is no centralized profile where his certification, specialization, and available slots are clearly visible.</li>
+                            <li>Wearable metrics are trapped in separate ecosystems, so building personalized, data-driven training plans takes excessive manual effort.</li>
+                            <li>Last-minute venue changes force him to renegotiate session logistics repeatedly, reducing coaching quality and increasing admin overhead.</li>
+                            <li>Current tools support transactions but not coach-client community building, challenge programming, or transparent skill progression.</li>
+                        </ul>
+                        
+                        <h5>Goals & Motivations</h5>
+                        <ul>
+                            <li>Streamline multi-gym booking and availability management into a single weekly planning workflow.</li>
+                            <li>Deliver measurable, data-driven coaching feedback that shows each client exactly how technique and endurance are improving.</li>
+                            <li>Expand his client base by becoming easier to discover for beginner climbers who need structured guidance.</li>
+                            <li>Build stronger client retention through clear milestones, progressive challenge plans, and consistent communication.</li>
+                            <li>Protect coaching energy by reducing repetitive administrative tasks and focusing on session quality.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="persona-section">
+                        <h4>Usage Scenario</h4>
+                        <p>On a Saturday morning, Marcus checks Go Climbers before leaving home and sees a unified schedule across both gyms, including two new beginner bookings from his public coach profile. During the first class, he reviews each student's wearable trends and adjusts drills for recovery and pacing in real time. After training, he assigns a weekly route challenge through the app's social competition module so clients can stay engaged between sessions. By lunch, he has confirmed next week's slots without juggling multiple chat threads, giving him more time to prepare individualized training plans.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="references">
+            <div class="container">
+                <h2>AI References</h2>
+                <ol>
+                    <li>[1] Claude (Anthropic). <em>Claude Sonnet 4.5.</em> Used for generating the website HTML/CSS code structure, layout design, and content organization. Accessed March 2026.</li>
+                    <li>[2] Claude (Anthropic). <em>Claude Sonnet 4.5.</em> Used for generating and refining user persona descriptions following the 10-80-10 framework for the Go Climbers application. Accessed March 2026.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="tech-reflection">
+            <div class="container">
+                <h2>Technical Reflection</h2>
+                <p>This website was built with the assistance of Claude (Anthropic) for code generation and content structuring. The AI was used to generate the HTML/CSS layout, user persona content, and deployment documentation.</p>
+                <p><strong>Verification methods:</strong> All generated code was reviewed for correctness, tested for responsive behavior across multiple viewport sizes, and checked for compliance with GitHub Pages requirements (relative paths, .nojekyll file, no build dependencies).</p>
+                <p><strong>Ethical considerations:</strong> AI-generated content was reviewed and validated against the project requirements. All member information was provided by the team and used verbatim. This section will be expanded as the project progresses through Week 10.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Go Climbers — CPT208 Group C2-3</p>
+        </div>
+    </footer>
+</body>
+</html>
