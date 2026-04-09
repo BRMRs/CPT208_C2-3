@@ -14,3 +14,8 @@ ai-logs/
 
 # Example/reference files (not needed for deployment)
 user_persona_example.png
+
+# User Research (sensitive user data)
+docs/
+docs/
+document/
