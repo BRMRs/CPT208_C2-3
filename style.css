@@ -523,3 +523,81 @@ section:nth-child(even) {
         padding: 0.8rem 1.2rem;
     }
 }
+
+/* ===== Customer Journey Map ===== */
+.journey-intro {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 2.5rem;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.journey-map-wrapper {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.journey-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.journey-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.journey-highlight-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 1.4rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.journey-stage-label {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    align-self: flex-start;
+}
+
+.journey-stage-label.awareness    { background-color: #4a9cc7; }
+.journey-stage-label.consideration { background-color: #e07b2a; }
+.journey-stage-label.service      { background-color: #5aac8e; }
+.journey-stage-label.loyalty      { background-color: #e85d26; }
+
+@media (max-width: 960px) {
+    .journey-highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .journey-highlights {
+        grid-template-columns: 1fr;
+    }
+}
