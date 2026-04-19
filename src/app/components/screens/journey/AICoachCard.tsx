@@ -1,26 +1,24 @@
 import React from 'react';
-import { Sparkles, Video } from 'lucide-react';
-import { S } from '../../../constants/styles';
 
 export interface AICoachCardProps {
-  onUpload: () => void;
+  switchTab: (tab: string) => void;
 }
 
-const AICoachCard: React.FC<AICoachCardProps> = ({ onUpload }) => {
+const AICoachCard: React.FC<AICoachCardProps> = ({ switchTab }) => {
   return (
-    <div className={`bg-[#EEF2FF] rounded-3xl p-5 ${S.border} ${S.shadow}`}>
-      <div className="flex items-center gap-2 mb-2">
-        <Sparkles className="w-5 h-5 text-indigo-600" />
-        <h2 className="font-black text-slate-900 text-lg">AI Coach</h2>
+    <div className="rounded-2xl border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] bg-gradient-to-br from-indigo-500 to-purple-600 p-5 text-white">
+      <div className="flex items-start justify-between mb-3">
+        <div>
+          <p className="font-black text-lg">Your AI Training Plan is Ready 🤖</p>
+          <p className="text-indigo-100 text-sm mt-1">See today's personalized training tasks</p>
+        </div>
+        <span className="text-3xl">✨</span>
       </div>
-      <p className="font-semibold text-slate-600 text-sm mb-3 leading-relaxed">
-        Plateauing on V2s? Upload your climbing video for professional technique feedback.
-      </p>
       <button
-        onClick={onUpload}
-        className={`w-full bg-white py-3 rounded-xl font-black text-indigo-700 flex items-center justify-center gap-2 ${S.border} ${S.shadowSm} ${S.press}`}
+        onClick={() => switchTab('boost')}
+        className="w-full bg-white text-indigo-700 font-black py-2.5 rounded-xl border-2 border-slate-900 shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] active:translate-y-1 active:translate-x-1 active:shadow-none text-sm"
       >
-        <Video className="w-5 h-5" strokeWidth={3} /> Upload Route Video
+        View Plan →
       </button>
     </div>
   );
