@@ -12,7 +12,7 @@ export interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, maxHeight }) => {
   if (!isOpen) return null;
 
-  const contentMax = maxHeight ?? 'max-h-[70vh]';
+  const contentMax = maxHeight ?? 'max-h-full';
 
   return (
     <>
