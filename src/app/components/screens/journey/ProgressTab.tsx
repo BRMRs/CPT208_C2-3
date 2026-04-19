@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Settings, Heart, Sparkles, Award, Video, CheckCircle2, X } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { PORTRAITS, BADGES } from '../../../data/mockData';
 import { S } from '../../../constants/styles';
 import { Badge, SessionLog, CalendarEvent, VenueReview } from '../../../types';
@@ -22,7 +22,6 @@ export const ProgressTab: React.FC<{
 }> = ({ onNavigate, switchTab, sessions, calendarEvents, addSession, addReview, markEventReviewed }) => {
   const [heartRate, setHeartRate] = useState(142);
   const [badges, setBadges] = useState<Badge[]>(BADGES);
-  const [showLogModal, setShowLogModal] = useState(false);
   const [selectedBadge, setSelectedBadge] = useState<Badge | null>(null);
 
   // Animated heart rate
@@ -72,7 +71,7 @@ export const ProgressTab: React.FC<{
       <BadgeGrid badges={badges} onSelectBadge={setSelectedBadge} selectedBadge={selectedBadge} />
 
       {/* Session History */}
-      <SessionHistory sessions={sessions} onOpenLogModal={() => setShowLogModal(true)} />
+      <SessionHistory sessions={sessions} addSession={handleAddSession} />
 
       {/* Badge Detail Modal */}
       {selectedBadge && (
@@ -88,76 +87,8 @@ export const ProgressTab: React.FC<{
         </Modal>
       )}
 
-      {/* Log Session Modal */}
-      {showLogModal && <LogSessionModal onClose={() => setShowLogModal(false)} addSession={handleAddSession} />}
-
-
     </div>
   );
 };
-
- 
-
-function LogSessionModal({ onClose, addSession }: { onClose: () => void; addSession?: (session: SessionLog) => void }) {
-  const [routes, setRoutes] = useState('');
-  const [level, setLevel] = useState('');
-  const [minutes, setMinutes] = useState('');
-  const [saved, setSaved] = useState(false);
-
-  if (saved) {
-    return (
-      <Modal onClose={onClose}>
-        <div className="flex flex-col items-center gap-4 text-center py-4">
-          <span className="text-5xl">🔥</span>
-          <h3 className="font-black text-2xl text-slate-900">Session Logged!</h3>
-          <p className="font-semibold text-slate-500 text-sm">Keep up the great work, Emma!</p>
-          <button onClick={onClose} className={`w-full bg-slate-900 text-white font-black py-3 rounded-2xl ${S.border} ${S.press}`}>
-            Done
-          </button>
-        </div>
-      </Modal>
-    );
-  }
-
-  return (
-    <Modal onClose={onClose}>
-      <h3 className="font-black text-xl text-slate-900 mb-4">Log a Session</h3>
-      <div className="flex flex-col gap-4">
-        <div>
-          <label className="font-bold text-slate-500 text-xs uppercase tracking-wider mb-1.5 block">Routes Sent</label>
-          <input type="number" value={routes} onChange={e => setRoutes(e.target.value)} placeholder="e.g. 8" className={S.input} />
-        </div>
-        <div>
-          <label className="font-bold text-slate-500 text-xs uppercase tracking-wider mb-1.5 block">Highest Level</label>
-          <input type="text" value={level} onChange={e => setLevel(e.target.value)} placeholder="e.g. V2" className={S.input} />
-        </div>
-        <div>
-          <label className="font-bold text-slate-500 text-xs uppercase tracking-wider mb-1.5 block">Duration (mins)</label>
-          <input type="number" value={minutes} onChange={e => setMinutes(e.target.value)} placeholder="e.g. 60" className={S.input} />
-        </div>
-        <button
-          onClick={() => { if (routes && level && minutes) {
-            // Create a new session object and notify parent through callback
-            const date = new Date().toISOString().slice(0,10);
-            const newSession: SessionLog = {
-              date,
-              routes: Number(routes),
-              level,
-              duration: Number(minutes),
-              heartRate: 0,
-              calories: 0,
-              notes: '',
-            } as SessionLog;
-            addSession?.(newSession);
-            setSaved(true);
-          }} }
-          className={`w-full bg-slate-900 text-white font-black text-lg py-3.5 rounded-2xl ${S.border} ${S.press}`}
-        >
-          Save Session 💾
-        </button>
-      </div>
-    </Modal>
-  );
-}
 
 export default ProgressTab;
