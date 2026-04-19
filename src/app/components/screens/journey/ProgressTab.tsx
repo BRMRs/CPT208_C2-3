@@ -74,7 +74,7 @@ export const ProgressTab: React.FC<{
       <HealthStats heartRate={heartRate} duration={48} calories={320} hrColor={hrColor} />
 
       {/* AI Coach */}
-      <AICoachCard onUpload={() => { setShowAIModal(true); simulateUpload(); }} />
+      <AICoachCard switchTab={switchTab ?? (() => {})} />
 
       {/* Calendar Section */}
       <CalendarSection
