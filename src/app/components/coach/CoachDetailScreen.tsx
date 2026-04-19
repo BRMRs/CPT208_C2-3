@@ -182,13 +182,24 @@ export const CoachDetailScreen: React.FC<CoachDetailScreenProps> = ({ coach, onB
 
       {/* Booking Modal */}
       {showBookModal && (
-        <BookingModal coach={coach} onClose={() => setShowBookModal(false)} />
+        <BookingModal
+          coach={coach}
+          onClose={() => setShowBookModal(false)}
+          onBookingSuccess={(info) => {
+            setBookingInfo(info);
+            setShowSuccess(true);
+            setTimeout(() => {
+              setShowSuccess(false);
+              setShowBookModal(false);
+            }, 2000);
+          }}
+        />
       )}
     </div>
   );
 };
 
-function BookingModal({ coach, onClose }: { coach: Coach; onClose: () => void }) {
+function BookingModal({ coach, onClose, onBookingSuccess }: { coach: Coach; onClose: () => void; onBookingSuccess: (info: {gymName: string; date: string; slot: string}) => void }) {
   const [step, setStep] = useState<0 | 1 | 2>(0);
   const [selectedGym, setSelectedGym] = useState<string | null>(null);
   const [dayIdx, setDayIdx] = useState(0);
@@ -200,16 +211,11 @@ function BookingModal({ coach, onClose }: { coach: Coach; onClose: () => void })
     if (!selectedGym || !slot) return;
     const gym = GYMS_DATA.find(g => g.id === selectedGym);
     if (gym) {
-      setBookingInfo({
+      onBookingSuccess({
         gymName: gym.name,
         date: DAYS[dayIdx].label,
         slot: slot
       });
-      setShowSuccess(true);
-      setTimeout(() => {
-        setShowSuccess(false);
-        onClose();
-      }, 2000);
     }
   };
 

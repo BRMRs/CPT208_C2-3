@@ -127,6 +127,7 @@ export type ScreenType =
   | 'home'
   | 'gymDetail'
   | 'chat'
+  | 'coachChat'
   | 'addPartner'
   | 'gettingStarted'
   | 'partnerProfile'

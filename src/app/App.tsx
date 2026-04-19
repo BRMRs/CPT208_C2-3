@@ -110,6 +110,7 @@ export default function App() {
             {activeScreen === 'gymDetail'      && <GymDetailScreen gym={screenData} onBack={goHome} onNavigate={navigate} venueReviews={venueReviews} />}
             {activeScreen === 'gettingStarted' && <GettingStartedScreen onBack={goHome} switchTab={switchTab} />}
             {activeScreen === 'chat'           && <ChatScreen partner={screenData} onBack={goHome} />}
+            {activeScreen === 'coachChat'     && <ChatScreen partner={screenData} onBack={() => navigate('coachDetail', screenData)} />}
             {activeScreen === 'addPartner'     && <AddPartnerScreen onBack={goHome} />}
             {activeScreen === 'partnerProfile' && (
               <PartnerProfileScreen
@@ -132,7 +133,7 @@ export default function App() {
               <CoachDetailScreen
                 coach={screenData}
                 onBack={goHome}
-                onChat={() => navigate('chat', screenData)}
+                onChat={() => navigate('coachChat', screenData)}
                 onBook={(coach: Coach) => navigate('bookCoach', coach)}
                 onNavigate={navigate}
               />
