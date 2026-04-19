@@ -325,9 +325,9 @@ function PlanSheet({ partner, onClose, onConfirmed }: {
   const selectedGym = GYMS_DATA.find(g => g.id === gymId);
 
   return (
-    <div className="absolute inset-0 z-50 flex items-end bg-slate-900/70 backdrop-blur-sm" onClick={onClose}>
+    <div className="absolute inset-0 bottom-[120px] z-50 flex items-end bg-slate-900/70 backdrop-blur-sm" onClick={onClose}>
       <div
-        className={`w-full bg-white rounded-t-3xl ${S.border} animate-in slide-in-from-bottom-4 duration-300 max-h-[92%] flex flex-col`}
+        className={`w-full bg-white rounded-t-3xl ${S.border} animate-in slide-in-from-bottom-4 duration-300 max-h-[70vh] flex flex-col`}
         onClick={e => e.stopPropagation()}
       >
         {/* Step indicator */}
@@ -632,9 +632,9 @@ function ChatHistorySheet({ history, onClose, onChat, onReview }: {
   onReview: (item: ChatHistoryItem) => void;
 }) {
   return (
-    <div className="absolute inset-0 z-50 flex items-end bg-slate-900/60 backdrop-blur-sm" onClick={onClose}>
+    <div className="absolute inset-0 bottom-[120px] z-50 flex items-end bg-slate-900/60 backdrop-blur-sm" onClick={onClose}>
       <div
-        className={`w-full bg-white rounded-t-3xl ${S.border} animate-in slide-in-from-bottom-4 duration-300 max-h-[80%] flex flex-col`}
+        className={`w-full bg-white rounded-t-3xl ${S.border} animate-in slide-in-from-bottom-4 duration-300 max-h-[70vh] flex flex-col`}
         onClick={e => e.stopPropagation()}
       >
         <div className="px-5 pt-5 pb-3 flex items-center justify-between border-b-2 border-slate-100 flex-shrink-0">
