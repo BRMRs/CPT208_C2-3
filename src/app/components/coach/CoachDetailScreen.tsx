@@ -195,6 +195,28 @@ export const CoachDetailScreen: React.FC<CoachDetailScreenProps> = ({ coach, onB
           }}
         />
       )}
+
+      {/* Success Toast */}
+      {showSuccess && bookingInfo && (
+        <div className="absolute inset-0 z-[60] flex items-center justify-center bg-slate-900/30 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl p-6 border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] mx-5 animate-in zoom-in duration-200">
+            <div className="flex flex-col items-center gap-3 text-center">
+              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
+                <CheckCircle2 className="w-8 h-8 text-green-600" strokeWidth={2.5} />
+              </div>
+              <div>
+                <p className="font-black text-slate-900 text-lg">Booking Confirmed!</p>
+                <p className="font-semibold text-slate-500 text-xs mt-1">
+                  {coach.name} at {bookingInfo.gymName}
+                </p>
+                <p className="font-semibold text-slate-400 text-xs">
+                  {bookingInfo.date} · {bookingInfo.slot}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -332,28 +354,6 @@ function BookingModal({ coach, onClose, onBookingSuccess }: { coach: Coach; onCl
           )}
         </div>
       </div>
-
-      {/* Success Toast */}
-      {showSuccess && bookingInfo && (
-        <div className="absolute inset-0 z-[60] flex items-center justify-center bg-slate-900/30 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl p-6 border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] mx-5 animate-in zoom-in duration-200">
-            <div className="flex flex-col items-center gap-3 text-center">
-              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-                <CheckCircle2 className="w-8 h-8 text-green-600" strokeWidth={2.5} />
-              </div>
-              <div>
-                <p className="font-black text-slate-900 text-lg">Booking Confirmed!</p>
-                <p className="font-semibold text-slate-500 text-xs mt-1">
-                  {coach.name} at {bookingInfo.gymName}
-                </p>
-                <p className="font-semibold text-slate-400 text-xs">
-                  {bookingInfo.date} · {bookingInfo.slot}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
