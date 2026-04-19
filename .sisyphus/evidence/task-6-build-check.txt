@@ -1,0 +1,5 @@
+BadgeGrid.tsx: Implemented earnedDate display logic in the badge detail modal using shared Modal component.
+- Unlocked badges: show "Earned {earnedDate}" under description in modal.
+- Locked badges: show "Not yet earned" in italic, slate-400.
+- Modal uses src/app/components/layout/Modal.tsx at path '../../layout/Modal'.
+- Build passed: vite build completed successfully (see dist assets).

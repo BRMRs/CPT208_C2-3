@@ -1,0 +1,5 @@
+- Lifted sessions/calendar/reviews state to App.tsx and wired through components.
+- Replaced local SESSIONS with props passed from App.tsx.
+- Added addSession callback and passed to ProgressTab/SessionHistory.
+- Updated GymDetailScreen to accept venueReviews prop and render lightly.
+- Built with vite: success.

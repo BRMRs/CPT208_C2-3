@@ -531,7 +531,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/app/components/screens/journey/ProgressTab.tsx`, `ProfileCard.tsx`, `BadgeGrid.tsx`, `SessionHistory.tsx`, `HealthStats.tsx`, `AICoachCard.tsx`
   - Pre-commit: `npm run build`
 
-- [ ] 5. Lift Shared State to App.tsx
+- [x] 5. Lift Shared State to App.tsx
 
   **What to do**:
   - In `src/app/App.tsx`, lift these state items from child components to the top level:
@@ -602,7 +602,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/app/App.tsx`, `src/app/components/screens/journey/ProgressTab.tsx`
   - Pre-commit: `npm run build`
 
-- [ ] 6. Badge Timestamps in Detail Modal
+- [x] 6. Badge Timestamps in Detail Modal
 
   **What to do**:
   - In `BadgeGrid.tsx` (extracted in T4), update the badge detail modal to show the earned date
@@ -667,7 +667,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/app/components/screens/journey/BadgeGrid.tsx`
   - Pre-commit: `npm run build`
 
-- [ ] 7. Session Enhancement — Form Fields + History Display + Video
+- [x] 7. Session Enhancement — Form Fields + History Display + Video
 
   **What to do**:
   - In `SessionHistory.tsx` (from T4), enhance the `LogSessionModal`:
@@ -762,7 +762,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/app/components/screens/journey/SessionHistory.tsx`
   - Pre-commit: `npm run build`
 
-- [ ] 8. Journey Calendar — Monthly View + Daily Schedule
+- [x] 8. Journey Calendar — Monthly View + Daily Schedule
 
   **What to do**:
   - Create `src/app/components/screens/journey/CalendarSection.tsx`
@@ -853,7 +853,7 @@ Max Concurrent: 6 (Wave 2)
   - Files: `src/app/components/screens/journey/CalendarSection.tsx`, `src/app/components/screens/journey/ProgressTab.tsx`
   - Pre-commit: `npm run build`
 
-- [ ] 9. Boost Tab — Scaffold + Free/Paid Course Sections
+- [x] 9. Boost Tab — Scaffold + Free/Paid Course Sections
 
   **What to do**:
   - Build out `src/app/components/screens/boost/BoostTab.tsx` (replacing T3's placeholder):

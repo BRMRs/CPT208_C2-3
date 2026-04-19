@@ -1,0 +1,5 @@
+dist/index.html                   0.42 kB │ gzip:  0.28 kB
+dist/assets/index-CfMiYo3k.css   35.61 kB │ gzip:  6.81 kB
+dist/assets/index-Uasvks-9.js   268.14 kB │ gzip: 73.94 kB
+
+✓ built in 405ms

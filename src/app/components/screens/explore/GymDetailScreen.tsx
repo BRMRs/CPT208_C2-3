@@ -9,7 +9,7 @@ const AMENITY_ICONS: Record<string, string> = {
   Showers: '🚿', Lockers: '🔒', Cafe: '☕', 'Gear Rental': '👟', 'Yoga Room': '🧘', 'Pro Shop': '🛒',
 };
 
-const TABS = ['Info', 'Routes', 'Coaches', 'Photos'] as const;
+const TABS = ['Info', 'Routes', 'Reviews', 'Coaches', 'Photos'] as const;
 type Tab = typeof TABS[number];
 
 // Hold positions [x%, y%] per route on a 100×100 grid (y=0 top, y=100 bottom)
@@ -185,6 +185,47 @@ export const GymDetailScreen: React.FC<GymDetailScreenProps> = ({ gym, onBack, o
                   </button>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Reviews - read-only tab content */ }
+          {tab === 'Reviews' && (
+            <div className="flex flex-col gap-3">
+              <div className="border-2 border-slate-900 rounded-2xl p-4 bg-amber-50 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+                <div className="flex items-center gap-2">
+                  <span className="text-3xl font-black">{overallAvg.toFixed(1)}</span>
+                  <span className="text-amber-500 text-xl">★</span>
+                  <span className="text-slate-500 text-sm">({reviewsCount} reviews)</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2 mt-3">
+                  {[
+                    { dim: 'Environment', val: envAvg },
+                    { dim: 'Route Design', val: routeAvg },
+                    { dim: 'Equipment', val: equipAvg },
+                    { dim: 'Value', val: valueAvg },
+                  ].map(d => (
+                    <div key={d.dim} className="text-sm">
+                      <span className="text-slate-500">{d.dim}: </span>
+                      <span className="font-bold">{d.val.toFixed(1)} ★</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {gymReviews.map(r => (
+                <div key={r.id} className="border-2 border-slate-900 rounded-2xl p-4 bg-white">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="font-black text-slate-900">{r.authorName}</span>
+                    <span className="text-xs text-slate-500">{r.date}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-1">
+                    <span>Environment: {r.environment}★</span>
+                    <span>Route Design: {r.routeDesign}★</span>
+                    <span>Equipment: {r.equipment}★</span>
+                    <span>Value: {r.value}★</span>
+                  </div>
+                  {r.text && <p className="mt-1 text-sm text-slate-700">"{r.text}"</p>}
+                </div>
+              ))}
             </div>
           )}
 

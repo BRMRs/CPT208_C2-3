@@ -45,6 +45,51 @@
       "agent": "Sisyphus-Junior",
       "category": "quick",
       "updated_at": "2026-04-19T10:30:37.884Z"
+    },
+    "todo:5": {
+      "task_key": "todo:5",
+      "task_label": "5",
+      "task_title": "Lift Shared State to App.tsx",
+      "session_id": "ses_25ab418b2ffefU2WYEXWiuOTgf",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-04-19T10:42:08.711Z"
+    },
+    "todo:6": {
+      "task_key": "todo:6",
+      "task_label": "6",
+      "task_title": "Badge Timestamps in Detail Modal",
+      "session_id": "ses_25aa9a92bffees2nKJtaDTGpNo",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-04-19T10:48:46.095Z"
+    },
+    "todo:7": {
+      "task_key": "todo:7",
+      "task_label": "7",
+      "task_title": "Session Enhancement — Form Fields + History Display + Video",
+      "session_id": "ses_25aa3a7d1ffeaaLa7qjE5LJDJA",
+      "agent": "Sisyphus-Junior",
+      "category": "unspecified-high",
+      "updated_at": "2026-04-19T10:52:59.410Z"
+    },
+    "todo:8": {
+      "task_key": "todo:8",
+      "task_label": "8",
+      "task_title": "Journey Calendar — Monthly View + Daily Schedule",
+      "session_id": "ses_25a9f9432ffeGX2J1o8k17lNxy",
+      "agent": "Sisyphus-Junior",
+      "category": "visual-engineering",
+      "updated_at": "2026-04-19T10:55:44.124Z"
+    },
+    "todo:9": {
+      "task_key": "todo:9",
+      "task_label": "9",
+      "task_title": "Boost Tab — Scaffold + Free/Paid Course Sections",
+      "session_id": "ses_25a9cfdb8ffeIwbftK6JlWPGIG",
+      "agent": "Sisyphus-Junior",
+      "category": "visual-engineering",
+      "updated_at": "2026-04-19T10:58:42.977Z"
     }
   }
 }
