@@ -1,0 +1,10 @@
+Build check for task-16: cross-tab links in GettingStartedScreen
+- Command: ./node_modules/.bin/vite build 2>&1 | tail -5
+
+- Output summary (last 5 lines):
+dist/index.html                   0.42 kB │ gzip:  0.29 kB
+dist/assets/index-D4WdyXR_.css   36.86 kB │ gzip:  6.95 kB
+dist/assets/index-Br0L7MOl.js   277.15 kB │ gzip: 75.83 kB
+
+- Result: Build succeeded
+✓ built in 539ms

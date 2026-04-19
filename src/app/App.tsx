@@ -106,7 +106,7 @@ export default function App() {
 
             {/* Detail screens */}
             {activeScreen === 'gymDetail'      && <GymDetailScreen gym={screenData} onBack={goHome} onNavigate={navigate} venueReviews={venueReviews} />}
-            {activeScreen === 'gettingStarted' && <GettingStartedScreen onBack={goHome} />}
+            {activeScreen === 'gettingStarted' && <GettingStartedScreen onBack={goHome} switchTab={switchTab} />}
             {activeScreen === 'chat'           && <ChatScreen partner={screenData} onBack={goHome} />}
             {activeScreen === 'addPartner'     && <AddPartnerScreen onBack={goHome} />}
             {activeScreen === 'partnerProfile' && (
