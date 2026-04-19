@@ -227,7 +227,7 @@ function BookingModal({ coach, onClose, onBookingSuccess }: { coach: Coach; onCl
           <div>
             <h3 className="font-black text-xl text-slate-900">📅 Book {coach.name}</h3>
             <p className="font-semibold text-slate-400 text-xs mt-0.5">
-              {step === 0 ? 'Select gym' : step === 1 ? 'Choose time' : 'Confirm'}[]
+              {step === 0 ? 'Select gym' : step === 1 ? 'Choose time' : 'Confirm'}
             </p>
           </div>
           <button onClick={onClose} className="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center">
