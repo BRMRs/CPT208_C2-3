@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowLeft, MessageCircle, Calendar, Star, MapPin, Award, CheckCircle2, X } from 'lucide-react';
 import { ScreenHeader } from '../layout/ScreenHeader';
 import { S } from '../../constants/styles';
-import { Coach, Course } from '../../types';
+import { Coach, Course, CoachReview } from '../../types';
 import { COURSES, COACH_COURSES, GYMS_DATA, TIME_SLOTS } from '../../data/mockData';
 
 function nowStr(): string {
@@ -29,17 +29,32 @@ interface CoachDetailScreenProps {
   onChat: () => void;
   onBook: (coach: Coach) => void;
   onNavigate: (screen: string, data?: unknown) => void;
+  coachReviews?: CoachReview[];
 }
 
-export const CoachDetailScreen: React.FC<CoachDetailScreenProps> = ({ coach, onBack, onChat, onBook, onNavigate }) => {
+export const CoachDetailScreen: React.FC<CoachDetailScreenProps> = ({ coach, onBack, onChat, onBook, onNavigate, coachReviews = [] }) => {
   const [showBookModal, setShowBookModal] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [bookingInfo, setBookingInfo] = useState<{gymName: string; date: string; slot: string} | null>(null);
-  
+
   const coachCourses = COACH_COURSES
     .filter(cc => cc.coachId === coach.id)
     .map(cc => COURSES.find(c => c.id === cc.courseId))
     .filter((c): c is Course => c !== undefined);
+
+  const thisCoachReviews = coachReviews.filter(r => r.coachId === coach.name);
+  const reviewCount = thisCoachReviews.length;
+
+  const avgRatings = reviewCount > 0 ? {
+    professionalism: Math.round(thisCoachReviews.reduce((sum, r) => sum + r.professionalism, 0) / reviewCount * 10) / 10,
+    teachingSkill: Math.round(thisCoachReviews.reduce((sum, r) => sum + r.teachingSkill, 0) / reviewCount * 10) / 10,
+    communication: Math.round(thisCoachReviews.reduce((sum, r) => sum + r.communication, 0) / reviewCount * 10) / 10,
+    valueForMoney: Math.round(thisCoachReviews.reduce((sum, r) => sum + r.valueForMoney, 0) / reviewCount * 10) / 10,
+  } : null;
+
+  const overallRating = avgRatings
+    ? Math.round((avgRatings.professionalism + avgRatings.teachingSkill + avgRatings.communication + avgRatings.valueForMoney) / 4 * 10) / 10
+    : 0;
 
   return (
     <div className="flex flex-col h-full bg-[#F8FAFC] animate-in slide-in-from-right duration-300">
@@ -134,6 +149,83 @@ export const CoachDetailScreen: React.FC<CoachDetailScreenProps> = ({ coach, onB
               <span className="font-black text-slate-900 text-xs">{q.score}/10</span>
             </div>
           ))}
+        </div>
+
+        {/* Student Reviews & Ratings */}
+        <div className="px-5 mt-4">
+          <div className="flex items-center gap-2 mb-3">
+            <Star className="w-4 h-4 text-slate-900" strokeWidth={2.5} />
+            <h3 className="font-black text-slate-900">Student Reviews</h3>
+            <span className="text-xs font-bold text-slate-500">({reviewCount} reviews)</span>
+          </div>
+
+          {avgRatings ? (
+            <div className="bg-white rounded-2xl p-4 border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="font-black text-3xl text-slate-900">{overallRating}</p>
+                  <p className="text-xs font-bold text-slate-500">Overall Rating</p>
+                </div>
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map(star => (
+                    <Star
+                      key={star}
+                      className={`w-5 h-5 ${star <= Math.round(overallRating) ? 'text-amber-400 fill-amber-400' : 'text-slate-200'}`}
+                      strokeWidth={2.5}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                {[
+                  { label: 'Professionalism', score: avgRatings.professionalism, color: 'bg-purple-500' },
+                  { label: 'Teaching Skill', score: avgRatings.teachingSkill, color: 'bg-indigo-500' },
+                  { label: 'Communication', score: avgRatings.communication, color: 'bg-blue-500' },
+                  { label: 'Value for Money', score: avgRatings.valueForMoney, color: 'bg-teal-500' },
+                ].map(item => (
+                  <div key={item.label} className="flex items-center gap-3">
+                    <span className="font-bold text-slate-700 w-28 text-xs">{item.label}</span>
+                    <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                      <div className={`h-full ${item.color} rounded-full`} style={{ width: `${item.score * 20}%` }} />
+                    </div>
+                    <span className="font-black text-slate-900 text-xs w-8">{item.score}</span>
+                  </div>
+                ))}
+              </div>
+
+              {thisCoachReviews.length > 0 && (
+                <div className="mt-4 pt-4 border-t-2 border-slate-100">
+                  <p className="font-bold text-slate-900 text-sm mb-3">Recent Reviews</p>
+                  <div className="flex flex-col gap-3 max-h-48 overflow-y-auto custom-scrollbar">
+                    {thisCoachReviews.slice(0, 3).map(review => (
+                      <div key={review.id} className="bg-slate-50 rounded-xl p-3">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="font-bold text-slate-900 text-sm">{review.authorName}</span>
+                          <span className="text-xs text-slate-400">{review.date}</span>
+                        </div>
+                        <div className="flex gap-1 mb-2">
+                          {[1, 2, 3, 4, 5].map(star => (
+                            <Star
+                              key={star}
+                              className={`w-3 h-3 ${star <= Math.round((review.professionalism + review.teachingSkill + review.communication + review.valueForMoney) / 4) ? 'text-amber-400 fill-amber-400' : 'text-slate-200'}`}
+                              strokeWidth={2.5}
+                            />
+                          ))}
+                        </div>
+                        {review.text && <p className="text-xs text-slate-600">{review.text}</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="bg-slate-50 rounded-2xl p-4 border-2 border-dashed border-slate-300 text-center">
+              <p className="text-sm font-bold text-slate-400">No reviews yet</p>
+              <p className="text-xs text-slate-400 mt-1">Book a session to be the first reviewer!</p>
+            </div>
+          )}
         </div>
 
         {/* Published Courses */}

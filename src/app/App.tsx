@@ -148,6 +148,7 @@ export default function App() {
                 onChat={() => navigate('coachChat', screenData)}
                 onBook={(coach: Coach) => navigate('bookCoach', coach)}
                 onNavigate={navigate}
+                coachReviews={coachReviews}
               />
             )}
           </div>
