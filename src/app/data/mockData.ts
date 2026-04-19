@@ -210,30 +210,7 @@ export const BADGES: Badge[] = [
   { id: 'b6', label: 'Video Star',    icon: '🎬', unlocked: false, desc: 'Upload a climbing video.' },
 ];
 
-export const SESSIONS: SessionLog[] = [
-  {
-    date: '2025-04-12',
-    routes: 2,
-    level: 'V2',
-    duration: 60,
-    heartRate: 142,
-    calories: 520,
-    notes: 'Nice session',
-    videoUrl: 'https://example.com/video1.mp4',
-    fatigueLevel: 3,
-  },
-  {
-    date: '2025-04-18',
-    routes: 3,
-    level: 'V3',
-    duration: 70,
-    heartRate: 150,
-    calories: 600,
-    notes: 'Pushed hard',
-    videoUrl: 'https://example.com/video2.mp4',
-    fatigueLevel: 4,
-  }
-];
+ 
 
 export const COURSES: Course[] = [
   { id: 'crs-warmup', title: 'Warm-Up Routine', thumbnail: '🔥', duration: '15 min', type: 'free', description: 'Gentle warm-up sequence to prep the body', category: 'Warm-up', coachId: 'c1' },

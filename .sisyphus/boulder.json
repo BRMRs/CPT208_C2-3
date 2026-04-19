@@ -1,0 +1,23 @@
+{
+  "active_plan": "/Users/rui/CPT208_C2-3/.sisyphus/plans/climbuddy-features.md",
+  "started_at": "2026-04-19T09:53:57.916Z",
+  "session_ids": [
+    "ses_25b012eb1ffeZv1Gbb2RIh0tQ1"
+  ],
+  "plan_name": "climbuddy-features",
+  "agent": "atlas",
+  "session_origins": {
+    "ses_25b012eb1ffeZv1Gbb2RIh0tQ1": "direct"
+  },
+  "task_sessions": {
+    "todo:1": {
+      "task_key": "todo:1",
+      "task_label": "1",
+      "task_title": "Extend TypeScript Types + Scaffold Mock Data",
+      "session_id": "ses_25ad42bbbffeMfW7tCK1cCOrJy",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-04-19T10:04:01.387Z"
+    }
+  }
+}

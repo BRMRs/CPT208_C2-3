@@ -1,0 +1,5 @@
+=== Task 3 Verification ===
+PASS: file exists
+PASS: 349 Chinese chars
+11
+PASS: URL present
