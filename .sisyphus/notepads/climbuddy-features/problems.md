@@ -1,0 +1,1 @@
+- SessionHistory still depends on parent state ordering for visual top insertion after `addSession`; component triggers callback immediately but does not own `sessions` ordering logic.

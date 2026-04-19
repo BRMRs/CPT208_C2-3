@@ -1,0 +1,1 @@
+- Kept `onOpenLogModal` prop support in SessionHistory for backward compatibility, but prioritized local modal flow when `addSession` is provided to satisfy immediate-add requirement.

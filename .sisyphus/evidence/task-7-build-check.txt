@@ -1,0 +1,5 @@
+dist/index.html                   0.42 kB │ gzip:  0.28 kB
+dist/assets/index-lVucF61k.css   34.32 kB │ gzip:  6.63 kB
+dist/assets/index-lK_etgCp.js   257.35 kB │ gzip: 71.61 kB
+
+✓ built in 520ms
