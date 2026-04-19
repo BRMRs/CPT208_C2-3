@@ -62,7 +62,7 @@ export const GYMS_DATA: Gym[] = [
 export const GYM_COACHES: Record<string, Coach[]> = {
   g1: [
     { 
-      id: 'c1', name: 'Bob', rating: '4.9', specialty: 'Footwork Expert',
+      id: 'c1', name: 'Bob', rating: '5.0', specialty: 'Footwork Expert',
       frequentGyms: ['g1', 'g2'],
       styles: ['Bouldering', 'Sport Climbing', 'Technique'],
       qualifications: [
@@ -451,7 +451,7 @@ export const COACH_REVIEWS = [
     professionalism: 5,
     teachingSkill: 5,
     communication: 5,
-    valueForMoney: 4,
+    valueForMoney: 5,
     text: 'Bob is an amazing coach! Really helped me improve my footwork. Patient and clear explanations.',
   },
   {
@@ -460,7 +460,7 @@ export const COACH_REVIEWS = [
     authorName: 'Alice',
     date: 'Mar 28',
     professionalism: 5,
-    teachingSkill: 4,
+    teachingSkill: 5,
     communication: 5,
     valueForMoney: 5,
     text: 'Great session with Bob. Learned so much about technique.',

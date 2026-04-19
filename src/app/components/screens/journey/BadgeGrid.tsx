@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { S } from '../../../constants/styles';
 import { Badge } from '../../../types';
-import { Award } from 'lucide-react';
+import { Award, ChevronDown, ChevronUp } from 'lucide-react';
 
 export interface BadgeGridProps {
   badges: Badge[];
@@ -9,15 +9,26 @@ export interface BadgeGridProps {
   selectedBadge?: Badge | null;
 }
 
+const INITIAL_DISPLAY_COUNT = 6;
+
 const BadgeGrid: React.FC<BadgeGridProps> = ({ badges, onSelectBadge, selectedBadge }) => {
+  const [expanded, setExpanded] = useState(false);
+  const unlockedCount = badges.filter(b => b.unlocked).length;
+  const displayBadges = expanded ? badges : badges.slice(0, INITIAL_DISPLAY_COUNT);
+  const hasMore = badges.length > INITIAL_DISPLAY_COUNT;
+
   return (
     <div className={`bg-[#FFFBEB] rounded-3xl p-5 ${S.border} ${S.shadow}`}>
-      <div className="flex items-center gap-2 mb-4">
-        <Award className="w-5 h-5 text-amber-500" strokeWidth={3} />
-        <h2 className="font-black text-slate-900 text-lg">Badges</h2>
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <Award className="w-5 h-5 text-amber-500" strokeWidth={3} />
+          <h2 className="font-black text-slate-900 text-lg">Badges</h2>
+        </div>
+        <span className="text-xs font-bold text-slate-500">{unlockedCount}/{badges.length} Unlocked</span>
       </div>
+
       <div className="grid grid-cols-3 gap-2">
-        {badges.map(b => {
+        {displayBadges.map(b => {
           const isSelected = selectedBadge?.id === b.id;
           return (
             <button
@@ -37,6 +48,23 @@ const BadgeGrid: React.FC<BadgeGridProps> = ({ badges, onSelectBadge, selectedBa
           );
         })}
       </div>
+
+      {hasMore && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full mt-4 flex items-center justify-center gap-1 py-2 text-sm font-bold text-slate-600 hover:text-slate-900 transition-colors"
+        >
+          {expanded ? (
+            <>
+              Show Less <ChevronUp className="w-4 h-4" />
+            </>
+          ) : (
+            <>
+              Show All {badges.length} Badges <ChevronDown className="w-4 h-4" />
+            </>
+          )}
+        </button>
+      )}
     </div>
   );
 };
