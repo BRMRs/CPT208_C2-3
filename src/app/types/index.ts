@@ -187,6 +187,20 @@ export interface CoachReview {
   text?: string;
 }
 
+export interface PartnerReview {
+  id: string;
+  partnerId: string;
+  partnerName: string;
+  authorName: string;
+  date: string;
+  reliability: number;
+  safety: number;
+  encouragement: number;
+  skillMatch: number;
+  communication: number;
+  text?: string;
+}
+
 export interface DailyTask {
   id: string;
   title: string;

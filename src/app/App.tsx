@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SESSIONS, CALENDAR_EVENTS, VENUE_REVIEWS } from './data/mockData';
-import { SessionLog, CalendarEvent, VenueReview, CoachReview } from './types';
+import { SessionLog, CalendarEvent, VenueReview, CoachReview, PartnerReview } from './types';
 import { ScreenType, TabType } from './types';
 
 // Layout
@@ -34,6 +34,7 @@ export default function App() {
   const [calendarEvents, setCalendarEvents] = useState<CalendarEvent[]>(CALENDAR_EVENTS);
   const [venueReviews, setVenueReviews] = useState<VenueReview[]>(VENUE_REVIEWS);
   const [coachReviews, setCoachReviews] = useState<CoachReview[]>([]);
+  const [partnerReviews, setPartnerReviews] = useState<PartnerReview[]>([]);
   const [purchasedCourseIds, setPurchasedCourseIds] = useState<string[]>([]);
 
   const addSession = (session: SessionLog) => {
@@ -46,6 +47,10 @@ export default function App() {
 
   const addCoachReview = (review: CoachReview) => {
     setCoachReviews(prev => [...prev, review]);
+  };
+
+  const addPartnerReview = (review: PartnerReview) => {
+    setPartnerReviews(prev => [...prev, review]);
   };
 
   const markEventReviewed = (eventId: string) => {
@@ -105,6 +110,7 @@ export default function App() {
                     addSession={addSession}
                     addReview={addReview}
                     addCoachReview={addCoachReview}
+                    addPartnerReview={addPartnerReview}
                     markEventReviewed={markEventReviewed}
                   />
                 )}

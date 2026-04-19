@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CalendarEvent, VenueReview, CoachReview } from '../../../types';
+import { CalendarEvent, VenueReview, CoachReview, PartnerReview } from '../../../types';
 import { S } from '../../../constants/styles';
 import { GYMS_DATA } from '../../../data/mockData';
 import Modal from '../../layout/Modal';
@@ -9,6 +9,7 @@ interface CalendarSectionProps {
   onWriteReview?: (event: CalendarEvent) => void;
   addReview?: (review: VenueReview) => void;
   addCoachReview?: (review: CoachReview) => void;
+  addPartnerReview?: (review: PartnerReview) => void;
   markEventReviewed?: (eventId: string) => void;
 }
 
@@ -17,14 +18,16 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
   onWriteReview,
   addReview,
   addCoachReview,
+  addPartnerReview,
   markEventReviewed,
 }) => {
   const [currentDate, setCurrentDate] = useState(new Date(2026, 3, 1));
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
   const [reviewingEvent, setReviewingEvent] = useState<CalendarEvent | null>(null);
-  const [reviewMode, setReviewMode] = useState<'venue' | 'coach'>('venue');
+  const [reviewMode, setReviewMode] = useState<'venue' | 'coach' | 'partner'>('venue');
   const [venueRatings, setVenueRatings] = useState({ environment: 0, routeDesign: 0, equipment: 0, value: 0 });
   const [coachRatings, setCoachRatings] = useState({ professionalism: 0, teachingSkill: 0, communication: 0, valueForMoney: 0 });
+  const [partnerRatings, setPartnerRatings] = useState({ reliability: 0, safety: 0, encouragement: 0, skillMatch: 0, communication: 0 });
   const [reviewText, setReviewText] = useState('');
 
   const year = currentDate.getFullYear();
@@ -60,6 +63,7 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
     setReviewMode('venue');
     setVenueRatings({ environment: 0, routeDesign: 0, equipment: 0, value: 0 });
     setCoachRatings({ professionalism: 0, teachingSkill: 0, communication: 0, valueForMoney: 0 });
+    setPartnerRatings({ reliability: 0, safety: 0, encouragement: 0, skillMatch: 0, communication: 0 });
     setReviewText('');
   };
 
@@ -99,6 +103,27 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
     };
 
     addCoachReview?.(newReview);
+    closeReviewModal();
+  };
+
+  const submitPartnerReview = () => {
+    if (!reviewingEvent || !reviewingEvent.partnerName || partnerRatings.reliability === 0) return;
+
+    const newReview: PartnerReview = {
+      id: `pr-${Date.now()}`,
+      partnerId: reviewingEvent.partnerName,
+      partnerName: reviewingEvent.partnerName,
+      authorName: 'Emma',
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+      reliability: partnerRatings.reliability,
+      safety: partnerRatings.safety || partnerRatings.reliability,
+      encouragement: partnerRatings.encouragement || partnerRatings.reliability,
+      skillMatch: partnerRatings.skillMatch || partnerRatings.reliability,
+      communication: partnerRatings.communication || partnerRatings.reliability,
+      text: reviewText || undefined,
+    };
+
+    addPartnerReview?.(newReview);
     closeReviewModal();
   };
 
@@ -216,6 +241,18 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
                         >
                           Review Gym
                         </button>
+
+                        {event.type === 'social' && event.partnerName && (
+                          <button
+                            onClick={() => {
+                              setReviewingEvent(event);
+                              setReviewMode('partner');
+                            }}
+                            className={`bg-orange-500 text-white text-xs font-bold py-2 px-3 rounded-xl ${S.press}`}
+                          >
+                            Review Partner
+                          </button>
+                        )}
 
                         {event.type === 'coach' && event.coachName && (
                           <button
@@ -357,6 +394,64 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
               className="w-full border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-y-1 active:translate-x-1 active:shadow-none bg-purple-400 text-slate-900 font-black py-3 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed"
             >
               Submit Coach Review
+            </button>
+          </div>
+        </Modal>
+      )}
+
+      {reviewingEvent && reviewMode === 'partner' && reviewingEvent.partnerName && (
+        <Modal
+          isOpen={true}
+          onClose={closeReviewModal}
+          title={`Review Partner: ${reviewingEvent.partnerName}`}
+        >
+          <div className="flex flex-col gap-4">
+            {(['reliability', 'safety', 'encouragement', 'skillMatch', 'communication'] as const).map(dim => {
+              const labels: Record<string, string> = {
+                reliability: '⏰ Reliability',
+                safety: '🛡️ Safety Awareness',
+                encouragement: '💪 Encouragement',
+                skillMatch: '🎯 Skill Match',
+                communication: '💬 Communication',
+              };
+
+              return (
+                <div key={dim} className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-slate-700">{labels[dim]}</span>
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4, 5].map(star => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setPartnerRatings(r => ({ ...r, [dim]: star }))}
+                        className={`text-xl ${partnerRatings[dim] >= star ? 'text-orange-400' : 'text-slate-200'}`}
+                      >
+                        ★
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+
+            <div>
+              <label className="text-sm font-bold text-slate-700 block mb-1">Comment (optional)</label>
+              <textarea
+                value={reviewText}
+                onChange={e => setReviewText(e.target.value.slice(0, 200))}
+                placeholder="Share your experience with this partner..."
+                className="w-full border-2 border-slate-900 rounded-xl p-3 text-sm resize-none h-20 focus:outline-none"
+              />
+              <p className="text-xs text-slate-400 text-right">{reviewText.length}/200</p>
+            </div>
+
+            <button
+              type="button"
+              onClick={submitPartnerReview}
+              disabled={partnerRatings.reliability === 0}
+              className="w-full border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-y-1 active:translate-x-1 active:shadow-none bg-orange-400 text-slate-900 font-black py-3 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Submit Partner Review
             </button>
           </div>
         </Modal>
