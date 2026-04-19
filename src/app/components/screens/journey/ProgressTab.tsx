@@ -41,6 +41,11 @@ export const ProgressTab: React.FC<{
 
   return (
     <div className="p-5 pb-28 flex flex-col gap-5 animate-in fade-in duration-300">
+      {/* My Journey Header */}
+      <div className="mb-2">
+        <h1 className="text-2xl font-black text-slate-900 tracking-tight">My Journey</h1>
+        <p className="text-slate-500 text-sm font-bold">Track your climbing progress</p>
+      </div>
 
       {/* Thin orchestrator renders sub-components */}
       {/* Profile Card */}
