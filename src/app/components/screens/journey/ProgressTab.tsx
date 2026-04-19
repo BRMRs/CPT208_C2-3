@@ -8,6 +8,7 @@ import BadgeGrid from './BadgeGrid';
 import HealthStats from './HealthStats';
 import AICoachCard from './AICoachCard';
 import SessionHistory from './SessionHistory';
+import { CalendarSection } from './CalendarSection';
 
 export const ProgressTab: React.FC<{
   onNavigate: (screen: string, data?: unknown) => void;
@@ -66,14 +67,17 @@ export const ProgressTab: React.FC<{
         calories={580}
       />
 
-      {/* Badges */}
-      <BadgeGrid badges={badges} onSelectBadge={setSelectedBadge} selectedBadge={selectedBadge} />
-
       {/* Live Health Data */}
       <HealthStats heartRate={heartRate} duration={48} calories={320} hrColor={hrColor} />
 
       {/* AI Coach */}
       <AICoachCard onUpload={() => { setShowAIModal(true); simulateUpload(); }} />
+
+      {/* Calendar Section */}
+      <CalendarSection calendarEvents={calendarEvents} onWriteReview={undefined} />
+
+      {/* Badges */}
+      <BadgeGrid badges={badges} onSelectBadge={setSelectedBadge} selectedBadge={selectedBadge} />
 
       {/* Session History */}
       <SessionHistory sessions={sessions} onOpenLogModal={() => setShowLogModal(true)} />
