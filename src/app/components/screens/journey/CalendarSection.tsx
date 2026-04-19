@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CalendarEvent, VenueReview } from '../../../types';
+import { CalendarEvent, VenueReview, CoachReview } from '../../../types';
 import { S } from '../../../constants/styles';
 import { GYMS_DATA } from '../../../data/mockData';
 import Modal from '../../layout/Modal';
@@ -8,6 +8,7 @@ interface CalendarSectionProps {
   calendarEvents: CalendarEvent[];
   onWriteReview?: (event: CalendarEvent) => void;
   addReview?: (review: VenueReview) => void;
+  addCoachReview?: (review: CoachReview) => void;
   markEventReviewed?: (eventId: string) => void;
 }
 
@@ -15,13 +16,15 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
   calendarEvents,
   onWriteReview,
   addReview,
+  addCoachReview,
   markEventReviewed,
 }) => {
-  // Default to April 2026 for testing since mock data is in April
-  const [currentDate, setCurrentDate] = useState(new Date(2026, 3, 1)); 
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 3, 1));
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
   const [reviewingEvent, setReviewingEvent] = useState<CalendarEvent | null>(null);
-  const [ratings, setRatings] = useState({ environment: 0, routeDesign: 0, equipment: 0, value: 0 });
+  const [reviewMode, setReviewMode] = useState<'venue' | 'coach'>('venue');
+  const [venueRatings, setVenueRatings] = useState({ environment: 0, routeDesign: 0, equipment: 0, value: 0 });
+  const [coachRatings, setCoachRatings] = useState({ professionalism: 0, teachingSkill: 0, communication: 0, valueForMoney: 0 });
   const [reviewText, setReviewText] = useState('');
 
   const year = currentDate.getFullYear();
@@ -54,27 +57,48 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
 
   const closeReviewModal = () => {
     setReviewingEvent(null);
-    setRatings({ environment: 0, routeDesign: 0, equipment: 0, value: 0 });
+    setReviewMode('venue');
+    setVenueRatings({ environment: 0, routeDesign: 0, equipment: 0, value: 0 });
+    setCoachRatings({ professionalism: 0, teachingSkill: 0, communication: 0, valueForMoney: 0 });
     setReviewText('');
   };
 
-  const submitReview = () => {
-    if (!reviewingEvent || ratings.environment === 0) return;
+  const submitVenueReview = () => {
+    if (!reviewingEvent || venueRatings.environment === 0) return;
 
     const newReview: VenueReview = {
       id: `vr-${Date.now()}`,
       gymId: reviewingEvent.gymId ?? '',
       authorName: 'Emma',
       date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-      environment: ratings.environment,
-      routeDesign: ratings.routeDesign || ratings.environment,
-      equipment: ratings.equipment || ratings.environment,
-      value: ratings.value || ratings.environment,
+      environment: venueRatings.environment,
+      routeDesign: venueRatings.routeDesign || venueRatings.environment,
+      equipment: venueRatings.equipment || venueRatings.environment,
+      value: venueRatings.value || venueRatings.environment,
       text: reviewText || undefined,
     };
 
     addReview?.(newReview);
     markEventReviewed?.(reviewingEvent.id);
+    closeReviewModal();
+  };
+
+  const submitCoachReview = () => {
+    if (!reviewingEvent || !reviewingEvent.coachName || coachRatings.professionalism === 0) return;
+
+    const newReview: CoachReview = {
+      id: `cr-${Date.now()}`,
+      coachId: reviewingEvent.coachName,
+      authorName: 'Emma',
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+      professionalism: coachRatings.professionalism,
+      teachingSkill: coachRatings.teachingSkill || coachRatings.professionalism,
+      communication: coachRatings.communication || coachRatings.professionalism,
+      valueForMoney: coachRatings.valueForMoney || coachRatings.professionalism,
+      text: reviewText || undefined,
+    };
+
+    addCoachReview?.(newReview);
     closeReviewModal();
   };
 
@@ -175,26 +199,41 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
                     </span>
                   </div>
 
-                  <div className="ml-7 flex flex-col gap-1">
+                  <div className="ml-7 flex flex-col gap-2">
                     <p className="text-sm font-bold text-slate-700">
                       🕐 {event.slot || 'Time TBD'} · 📍 {getGymName(event)}
                     </p>
 
-                    {event.type === 'booking' && event.isExpired && !event.isReviewed && (
-                      <button
-                        onClick={() => {
-                          onWriteReview?.(event);
-                          setReviewingEvent(event);
-                        }}
-                        className={`mt-1 bg-slate-900 text-white text-xs font-bold py-2 px-4 rounded-xl self-start ${S.press}`}
-                      >
-                        Write Review
-                      </button>
+                    {event.isExpired && (
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          onClick={() => {
+                            onWriteReview?.(event);
+                            setReviewingEvent(event);
+                            setReviewMode('venue');
+                          }}
+                          className={`bg-slate-900 text-white text-xs font-bold py-2 px-3 rounded-xl ${S.press}`}
+                        >
+                          Review Gym
+                        </button>
+
+                        {event.type === 'coach' && event.coachName && (
+                          <button
+                            onClick={() => {
+                              setReviewingEvent(event);
+                              setReviewMode('coach');
+                            }}
+                            className={`bg-purple-600 text-white text-xs font-bold py-2 px-3 rounded-xl ${S.press}`}
+                          >
+                            Review Coach
+                          </button>
+                        )}
+                      </div>
                     )}
 
-                    {event.type === 'booking' && event.isExpired && event.isReviewed && (
-                      <span className="mt-1 text-green-600 text-sm font-bold flex items-center gap-1">
-                        Reviewed ✓
+                    {event.isExpired && event.isReviewed && (
+                      <span className="text-green-600 text-sm font-bold flex items-center gap-1">
+                        Gym Reviewed ✓
                       </span>
                     )}
                   </div>
@@ -209,11 +248,11 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
         </div>
       )}
 
-      {reviewingEvent && (
+      {reviewingEvent && reviewMode === 'venue' && (
         <Modal
           isOpen={true}
           onClose={closeReviewModal}
-          title={`Review: ${reviewingEvent.gymName ?? 'Gym'}`}
+          title={`Review Venue: ${reviewingEvent.gymName ?? getGymName(reviewingEvent)}`}
         >
           <div className="flex flex-col gap-4">
             {(['environment', 'routeDesign', 'equipment', 'value'] as const).map(dim => {
@@ -232,8 +271,8 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
                       <button
                         key={star}
                         type="button"
-                        onClick={() => setRatings(r => ({ ...r, [dim]: star }))}
-                        className={`text-xl ${ratings[dim] >= star ? 'text-amber-400' : 'text-slate-200'}`}
+                        onClick={() => setVenueRatings(r => ({ ...r, [dim]: star }))}
+                        className={`text-xl ${venueRatings[dim] >= star ? 'text-amber-400' : 'text-slate-200'}`}
                       >
                         ★
                       </button>
@@ -256,11 +295,68 @@ export const CalendarSection: React.FC<CalendarSectionProps> = ({
 
             <button
               type="button"
-              onClick={submitReview}
-              disabled={ratings.environment === 0}
+              onClick={submitVenueReview}
+              disabled={venueRatings.environment === 0}
               className="w-full border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-y-1 active:translate-x-1 active:shadow-none bg-teal-400 text-slate-900 font-black py-3 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed"
             >
               Submit Review
+            </button>
+          </div>
+        </Modal>
+      )}
+
+      {reviewingEvent && reviewMode === 'coach' && reviewingEvent.coachName && (
+        <Modal
+          isOpen={true}
+          onClose={closeReviewModal}
+          title={`Review Coach: ${reviewingEvent.coachName}`}
+        >
+          <div className="flex flex-col gap-4">
+            {(['professionalism', 'teachingSkill', 'communication', 'valueForMoney'] as const).map(dim => {
+              const labels: Record<string, string> = {
+                professionalism: '👔 Professionalism',
+                teachingSkill: '📚 Teaching Skill',
+                communication: '💬 Communication',
+                valueForMoney: '💰 Value for Money',
+              };
+
+              return (
+                <div key={dim} className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-slate-700">{labels[dim]}</span>
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4, 5].map(star => (
+                      <button
+                        key={star}
+                        type="button"
+                        onClick={() => setCoachRatings(r => ({ ...r, [dim]: star }))}
+                        className={`text-xl ${coachRatings[dim] >= star ? 'text-purple-400' : 'text-slate-200'}`}
+                      >
+                        ★
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+
+            <div>
+              <label className="text-sm font-bold text-slate-700 block mb-1">Comment (optional)</label>
+              <textarea
+                value={reviewText}
+                onChange={e => setReviewText(e.target.value.slice(0, 200))}
+                placeholder="Share your experience with this coach..."
+                className="w-full border-2 border-slate-900 rounded-xl p-3 text-sm resize-none h-20 focus:outline-none"
+              />
+              <p className="text-xs text-slate-400 text-right">{reviewText.length}/200</p>
+            </div>
+
+            <button
+              type="button"
+              onClick={submitCoachReview}
+              disabled={coachRatings.professionalism === 0}
+              className="w-full border-2 border-slate-900 shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] active:translate-y-1 active:translate-x-1 active:shadow-none bg-purple-400 text-slate-900 font-black py-3 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Submit Coach Review
             </button>
           </div>
         </Modal>

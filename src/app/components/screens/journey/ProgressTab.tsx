@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { PORTRAITS, BADGES } from '../../../data/mockData';
 import { S } from '../../../constants/styles';
-import { Badge, SessionLog, CalendarEvent, VenueReview } from '../../../types';
+import { Badge, SessionLog, CalendarEvent, VenueReview, CoachReview } from '../../../types';
 import ProfileCard from './ProfileCard';
 import BadgeGrid from './BadgeGrid';
 import HealthStats from './HealthStats';
@@ -18,8 +18,9 @@ export const ProgressTab: React.FC<{
   calendarEvents: CalendarEvent[];
   addSession: (session: SessionLog) => void;
   addReview: (review: VenueReview) => void;
+  addCoachReview?: (review: CoachReview) => void;
   markEventReviewed: (eventId: string) => void;
-}> = ({ onNavigate, switchTab, sessions, calendarEvents, addSession, addReview, markEventReviewed }) => {
+}> = ({ onNavigate, switchTab, sessions, calendarEvents, addSession, addReview, addCoachReview, markEventReviewed }) => {
   const [heartRate, setHeartRate] = useState(142);
   const [badges, setBadges] = useState<Badge[]>(BADGES);
   const [selectedBadge, setSelectedBadge] = useState<Badge | null>(null);
@@ -69,6 +70,7 @@ export const ProgressTab: React.FC<{
       <CalendarSection
         calendarEvents={calendarEvents}
         addReview={addReview}
+        addCoachReview={addCoachReview}
         markEventReviewed={markEventReviewed}
       />
 

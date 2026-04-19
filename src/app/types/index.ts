@@ -175,6 +175,18 @@ export interface VenueReview {
   text?: string;
 }
 
+export interface CoachReview {
+  id: string;
+  coachId: string;
+  authorName: string;
+  date: string;
+  professionalism: number;
+  teachingSkill: number;
+  communication: number;
+  valueForMoney: number;
+  text?: string;
+}
+
 export interface DailyTask {
   id: string;
   title: string;
