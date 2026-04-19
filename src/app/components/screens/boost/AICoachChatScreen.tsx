@@ -190,8 +190,8 @@ function VideoAnalysisModal({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="absolute inset-0 bottom-[120px] z-50 flex items-end bg-slate-900/60 backdrop-blur-sm" onClick={onClose}>
-      <div className="w-full bg-white rounded-t-3xl border-t-2 border-slate-900 animate-in slide-in-from-bottom-4 duration-300 max-h-[70vh] flex flex-col"
+    <div className="absolute inset-x-0 bottom-[120px] z-50" onClick={onClose}>
+      <div className="w-full bg-white rounded-t-3xl border-t-2 border-slate-900 shadow-[0px_-4px_0px_0px_rgba(15,23,42,1)] animate-in slide-in-from-bottom-4 duration-300 max-h-[70vh] flex flex-col"
         onClick={e => e.stopPropagation()}>
         <div className="px-5 pt-5 pb-3 flex-shrink-0 flex items-center justify-between">
           <div>

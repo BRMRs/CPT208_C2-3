@@ -314,9 +314,9 @@ function ProposeMeetingSheet({ partnerName, onClose, onSend }: {
   };
 
   return (
-    <div className="absolute inset-0 bottom-[120px] z-50 flex items-end bg-slate-900/60 backdrop-blur-sm" onClick={onClose}>
+    <div className="absolute inset-x-0 bottom-[120px] z-50" onClick={onClose}>
       <div
-        className={`w-full bg-white rounded-t-3xl ${S.border} animate-in slide-in-from-bottom-4 duration-300 max-h-[70vh] flex flex-col`}
+        className={`w-full bg-white rounded-t-3xl ${S.border} shadow-[0px_-4px_0px_0px_rgba(15,23,42,1)] animate-in slide-in-from-bottom-4 duration-300 max-h-[70vh] flex flex-col`}
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
