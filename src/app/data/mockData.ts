@@ -362,14 +362,10 @@ export const VENUE_REVIEWS: VenueReview[] = [
 ];
 
 export const DAILY_PLAN: DailyTask[] = [
-  { id: 'dt1', title: 'Warm-Up Routine', duration: '15 min', type: 'free', courseId: 'crs-warmup', completed: true },
-  { id: 'dt2', title: 'Essential Stretching', duration: '20 min', type: 'free', courseId: 'crs-stretch', completed: true },
-  { id: 'dt3', title: 'Active Recovery Flow', duration: '25 min', type: 'free', courseId: 'crs-recovery', completed: true },
+  { id: 'dt1', title: 'Warm-Up Routine', duration: '15 min', type: 'free', courseId: 'crs-warmup', completed: false },
   { id: 'dt4', title: 'Plateau Breaker: Core Strength', duration: '25 min', type: 'paid', courseId: 'crs-plateau', completed: false },
-  { id: 'dt5', title: 'Coach Session: Advanced Footwork', duration: '60 min', type: 'coach', courseId: 'cc2', completed: true },
   { id: 'dt6', title: 'Finger Strength Training', duration: '15 min', type: 'paid', courseId: 'crs-finger', completed: false },
   { id: 'dt7', title: 'Breathing Techniques', duration: '10 min', type: 'free', courseId: 'crs-breathe', completed: false },
-  { id: 'dt8', title: 'Endurance Circuit Prep', duration: '20 min', type: 'paid', courseId: 'crs-endurance', completed: false },
 ];
 
 export const COACH_COURSES: CoachCourse[] = [
@@ -445,7 +441,7 @@ export const SESSIONS: SessionLog[] = [
 export const COACH_REVIEWS = [
   {
     id: 'cr1',
-    coachId: 'Bob',
+    coachId: 'c1',
     authorName: 'Emma',
     date: 'Apr 13',
     professionalism: 5,
@@ -456,7 +452,7 @@ export const COACH_REVIEWS = [
   },
   {
     id: 'cr2',
-    coachId: 'Bob',
+    coachId: 'c1',
     authorName: 'Alice',
     date: 'Mar 28',
     professionalism: 5,
@@ -467,7 +463,7 @@ export const COACH_REVIEWS = [
   },
   {
     id: 'cr3',
-    coachId: 'Sara',
+    coachId: 'c4',
     authorName: 'Emma',
     date: 'Apr 20',
     professionalism: 4,
@@ -478,7 +474,7 @@ export const COACH_REVIEWS = [
   },
   {
     id: 'cr4',
-    coachId: 'Kai',
+    coachId: 'c6',
     authorName: 'Marcus',
     date: 'Apr 5',
     professionalism: 5,
@@ -489,7 +485,7 @@ export const COACH_REVIEWS = [
   },
   {
     id: 'cr5',
-    coachId: 'Jack',
+    coachId: 'c2',
     authorName: 'David',
     date: 'Mar 15',
     professionalism: 5,

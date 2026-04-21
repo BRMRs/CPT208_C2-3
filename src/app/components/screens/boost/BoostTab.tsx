@@ -12,8 +12,10 @@ interface BoostTabProps {
 
 export const BoostTab: React.FC<BoostTabProps> = ({ onNavigate, switchTab, purchasedCourseIds, onPurchase }) => {
   const [tasks, setTasks] = useState<DailyTask[]>(DAILY_PLAN);
+  const [showAllPremium, setShowAllPremium] = useState(false);
   const freeCourses = COURSES.filter(c => c.type === 'free');
   const paidCourses = COURSES.filter(c => c.type === 'paid');
+  const visiblePaidCourses = showAllPremium ? paidCourses : paidCourses.slice(0, 2);
   const allCoaches = Object.values(GYM_COACHES).flat();
 
   const getBgColor = (thumbnail: string) => {
@@ -133,9 +135,12 @@ export const BoostTab: React.FC<BoostTabProps> = ({ onNavigate, switchTab, purch
       </div>
 
       <div className="flex flex-col gap-3">
-        <h2 className="text-xl font-black text-slate-900">Premium Training</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-black text-slate-900">Premium Training</h2>
+          <span className="text-xs font-bold text-slate-400">{paidCourses.length} courses</span>
+        </div>
         <div className="flex flex-col gap-3">
-          {paidCourses.map(course => {
+          {visiblePaidCourses.map(course => {
             const isPurchased = purchasedCourseIds.includes(course.id);
             return (
               <button
@@ -168,6 +173,14 @@ export const BoostTab: React.FC<BoostTabProps> = ({ onNavigate, switchTab, purch
             );
           })}
         </div>
+        {paidCourses.length > 2 && (
+          <button
+            onClick={() => setShowAllPremium(v => !v)}
+            className={`w-full py-2.5 rounded-xl text-sm font-black text-slate-600 border-2 border-slate-200 bg-white ${S.press}`}
+          >
+            {showAllPremium ? `Show less ↑` : `Show all ${paidCourses.length} courses ↓`}
+          </button>
+        )}
       </div>
 
       {/* Train with a Coach Section */}
