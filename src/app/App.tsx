@@ -181,7 +181,7 @@ export default function App() {
             />
           )}
           {!showWelcome && showTour && tourReady && (
-            <SpotlightTour onComplete={completeTour} switchTab={switchTab as any} />
+            <SpotlightTour onComplete={completeTour} switchTab={(tab: string) => switchTab(tab as TabType)} />
           )}
 
           {/* Bottom Nav — only on home */}
