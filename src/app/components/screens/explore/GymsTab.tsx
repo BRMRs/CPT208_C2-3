@@ -38,7 +38,7 @@ export const GymsTab: React.FC<GymsTabProps> = ({ onNavigate, switchTab }) => {
       </div>
 
       {/* Search Bar */}
-      <div className={`flex items-center gap-3 bg-white rounded-2xl px-4 py-3 ${S.border} ${S.shadowSm}`}>
+      <div data-onboarding="search-bar" className={`flex items-center gap-3 bg-white rounded-2xl px-4 py-3 ${S.border} ${S.shadowSm}`}>
         <Search className="w-5 h-5 text-slate-400 shrink-0" strokeWidth={2.5} />
         <input
           value={query}
@@ -71,6 +71,7 @@ export const GymsTab: React.FC<GymsTabProps> = ({ onNavigate, switchTab }) => {
 
       {/* New to Climbing Banner */}
       <button
+        data-onboarding="getting-started-banner"
         onClick={() => onNavigate('gettingStarted')}
         className={`bg-[#E0E7FF] rounded-2xl p-4 flex items-center gap-4 ${S.border} ${S.shadowSm} ${S.press} text-left`}
       >
