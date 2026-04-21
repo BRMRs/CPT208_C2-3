@@ -44,10 +44,22 @@ export const ProgressTab: React.FC<{
 
   return (
     <div className="p-5 pb-28 flex flex-col gap-5 animate-in fade-in duration-300">
-      {/* My Journey Header */}
+      {/* My Journey Header with re-trigger button */}
       <div className="mb-2">
-        <h1 className="text-2xl font-black text-slate-900 tracking-tight">My Journey</h1>
-        <p className="text-slate-500 text-sm font-bold">Track your climbing progress</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-black text-slate-900 tracking-tight">My Journey</h1>
+            <p className="text-slate-500 text-sm font-bold">Track your climbing progress</p>
+          </div>
+          {onResetOnboarding && (
+            <button
+              onClick={onResetOnboarding}
+              className={`bg-[#E0E7FF] rounded-xl px-3 py-2 font-black text-slate-900 text-xs flex items-center gap-1.5 ${S.border} ${S.shadowSm} ${S.press}`}
+            >
+              <span>❓</span> Guide
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Thin orchestrator renders sub-components */}
