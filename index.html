@@ -17,10 +17,12 @@
     <nav>
         <ul>
             <li><a href="#team">Team</a></li>
-            <li><a href="#personas">User Personas</a></li>
-            <li><a href="#journey">Customer Journey</a></li>
+            <li><a href="#motivation">1. Motivation</a></li>
+            <li><a href="#journey">2. User Req.</a></li>
+            <li><a href="#crazy-eights">3. Ideation</a></li>
+            <li><a href="#system-architecture">4. Technical</a></li>
+            <li><a href="#usability-testing">5. Evaluation</a></li>
             <li><a href="#references">AI References</a></li>
-            <li><a href="#tech-reflection">Technical Reflection</a></li>
         </ul>
     </nav>
 
@@ -40,7 +42,7 @@
                         <img src="assets/images/rui.jpg" alt="Rui Zheng">
                         <h3>Rui Zheng</h3>
                         <p class="student-id">ID: 2362065</p>
-                        <p class="intro">Hangzhou. Chief Last-Minute Expert. Looks calm, panics internally. </p>
+                        <p class="intro">Hangzhou. Chief Last-Minute Expert. Looks calm, panics internally.</p>
                     </div>
                     <div class="member-card">
                         <img src="assets/images/tian.jpg" alt="Jiutian Chang">
@@ -64,9 +66,167 @@
             </div>
         </section>
 
-        <section id="personas">
+        <!-- ═══════════════════════════════════════════════
+             SECTION 1 · MOTIVATION & RESEARCH
+        ════════════════════════════════════════════════ -->
+        <section id="motivation">
             <div class="container">
-                <h2>User Personas</h2>
+                <div class="section-tag">Section 1 · Motivation &amp; Research</div>
+                <h2>The Why</h2>
+                <div class="why-content">
+                    <p>We chose the <strong>Active</strong> track because climbing is one of the fastest-growing urban sports in China, yet its digital support remains fragmented and socially isolating. Unlike conventional gym workouts, climbing inherently requires a partner — for safety, motivation, and progression — but no dedicated platform bridges partner-matching, gym discovery, coaching, and progress tracking in one connected experience.</p>
+                    <p>Our team observed that climbers routinely juggle four or five separate tools: WeChat groups for finding partners, Xiaohongshu for gym reviews, Dianping for pricing, a coach's personal WeChat for bookings, and a generic fitness app for logging. This friction discourages beginners from continuing and limits experienced climbers from reaching their potential. The sport's social, skill-based, and progressive nature makes it uniquely suited for a playful digital companion.</p>
+                    <p>Research on climbing technology has also increased in recent years, including movement analysis, training feedback, and technical support [1–3]. However, these advances remain inaccessible to everyday users. Go Climbers addresses this gap by integrating partner matching, a verified gym directory, certified coach bookings, and wearable-powered performance tracking into a single, low-friction app. Our two core aims: an <strong>Integrated Climbing Flow</strong> that removes fragmentation, and a <strong>Low-Pressure Playful Experience</strong> that keeps users motivated through gamified milestones and community recognition.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gap">
+            <div class="container">
+                <h2>The Gap</h2>
+                <div class="gap-grid">
+                    <div class="gap-col">
+                        <h3>Academic Papers</h3>
+
+                        <div class="gap-card">
+                            <h4>Addressing Grading Bias in Rock Climbing: Machine and Deep Learning Approaches <span class="gap-year">— O'Mara &amp; Mahmud, 2025</span></h4>
+                            <p class="gap-list-label">Did Well</p>
+                            <ul class="gap-list did-well">
+                                <li>Applied AI/ML to reduce subjectivity in route grading</li>
+                                <li>Dataset-driven approach with measurable benchmark results</li>
+                                <li>Bridges sports science and HCI through computational modelling</li>
+                            </ul>
+                            <p class="gap-list-label">Missed</p>
+                            <ul class="gap-list missed">
+                                <li>No user-facing application or interface designed for climbers</li>
+                                <li>Ignores social and partner-matching aspects of the sport</li>
+                                <li>Findings inaccessible to everyday beginners</li>
+                            </ul>
+                        </div>
+
+                        <div class="gap-card">
+                            <h4>ClimbingCap: Multi-Modal Dataset for Rock Climbing in World Coordinate <span class="gap-year">— Yan et al., 2025</span></h4>
+                            <p class="gap-list-label">Did Well</p>
+                            <ul class="gap-list did-well">
+                                <li>Multi-modal sensing (RGB, depth, IMU) captures body movement</li>
+                                <li>World-coordinate mapping enables precise motion analysis</li>
+                                <li>Strong technical foundation for future performance tools</li>
+                            </ul>
+                            <p class="gap-list-label">Missed</p>
+                            <ul class="gap-list missed">
+                                <li>No consumer-facing app or UX layer for real-world use</li>
+                                <li>Requires specialised lab hardware, not wearable-ready</li>
+                                <li>No coaching recommendations or feedback loop for users</li>
+                            </ul>
+                        </div>
+
+                        <div class="gap-card">
+                            <h4>Sound-Assisted Climbing: Bouldering Performance Through Auditory Guidance <span class="gap-year">— Sun et al., 2025</span></h4>
+                            <p class="gap-list-label">Did Well</p>
+                            <ul class="gap-list did-well">
+                                <li>Novel sensory-feedback modality proven to improve performance</li>
+                                <li>Conducted rigorous user testing with real climbers</li>
+                                <li>Demonstrates technology can directly aid training on the wall</li>
+                            </ul>
+                            <p class="gap-list-label">Missed</p>
+                            <ul class="gap-list missed">
+                                <li>Narrows scope to audio only — no visual or haptic integration</li>
+                                <li>No social or community dimension explored</li>
+                                <li>Lab-based setup; limited real gym deployment</li>
+                            </ul>
+                        </div>
+
+                        <div class="gap-card">
+                            <h4>Gamification in Fitness Apps: Effects on Motivation and Retention <span class="gap-year">— Lister et al., 2014</span></h4>
+                            <p class="gap-list-label">Did Well</p>
+                            <ul class="gap-list did-well">
+                                <li>Empirically links badge/leaderboard mechanics to sustained engagement</li>
+                                <li>User-centred methodology with broad fitness domain coverage</li>
+                                <li>Provides design principles directly applicable to activity apps</li>
+                            </ul>
+                            <p class="gap-list-label">Missed</p>
+                            <ul class="gap-list missed">
+                                <li>General fitness focus — no sport-specific (climbing) context</li>
+                                <li>Does not address partner or coach discovery flows</li>
+                                <li>Long-term retention evidence remains limited</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="gap-col">
+                        <h3>Commercial Products</h3>
+
+                        <div class="gap-card">
+                            <h4>Xiaohongshu (小红书)</h4>
+                            <p class="gap-list-label">Did Well</p>
+                            <ul class="gap-list did-well">
+                                <li>Massive user base with rich photo/video gym reviews</li>
+                                <li>Strong community feel with comments and saves</li>
+                                <li>Effective for visual discovery and trend-driven content</li>
+                            </ul>
+                            <p class="gap-list-label">Missed</p>
+                            <ul class="gap-list missed">
+                                <li>No climbing-specific filters (difficulty level, beginner-friendliness)</li>
+                                <li>Heavily influenced by promotional/sponsored content</li>
+                                <li>No partner-matching or coach-booking functionality</li>
+                            </ul>
+                        </div>
+
+                        <div class="gap-card">
+                            <h4>Dianping (大众点评)</h4>
+                            <p class="gap-list-label">Did Well</p>
+                            <ul class="gap-list did-well">
+                                <li>Location-based gym search with map integration</li>
+                                <li>Aggregated star ratings and user text reviews</li>
+                                <li>Shows pricing and opening hours reliably</li>
+                            </ul>
+                            <p class="gap-list-label">Missed</p>
+                            <ul class="gap-list missed">
+                                <li>Generic platform — no climbing-specific metadata (route setter, V-grade range)</li>
+                                <li>Reviews often vague and ad-polluted without climbing expertise</li>
+                                <li>No social layer for partner finding or progress sharing</li>
+                            </ul>
+                        </div>
+
+                        <div class="gap-card">
+                            <h4>WeChat Groups (微信群)</h4>
+                            <p class="gap-list-label">Did Well</p>
+                            <ul class="gap-list did-well">
+                                <li>Familiar interface with high daily engagement</li>
+                                <li>Real-time coordination among trusted contacts</li>
+                                <li>Low barrier to entry — no new app required</li>
+                            </ul>
+                            <p class="gap-list-label">Missed</p>
+                            <ul class="gap-list missed">
+                                <li>No structured matching by skill level or availability</li>
+                                <li>No profile verification or trust signals for strangers</li>
+                                <li>No progress tracking, coaching, or gym discovery features</li>
+                            </ul>
+                        </div>
+
+                        <div class="gap-card">
+                            <h4>8a.nu / TheCrag</h4>
+                            <p class="gap-list-label">Did Well</p>
+                            <ul class="gap-list did-well">
+                                <li>Comprehensive global route database with community grading</li>
+                                <li>Personal logbook for tracking ascents and progression over time</li>
+                                <li>Established trust within the serious climbing community</li>
+                            </ul>
+                            <p class="gap-list-label">Missed</p>
+                            <ul class="gap-list missed">
+                                <li>English-only UI — poor accessibility for Chinese domestic market</li>
+                                <li>No indoor gym directory or coach-booking integration</li>
+                                <li>No social partner-matching or beginner onboarding</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stakeholders">
+            <div class="container">
+                <h2>The Stakeholders</h2>
                 <div class="persona-card-rich">
                     <div class="persona-banner">User Persona — <span class="persona-name">Emma Chen</span></div>
                     <div class="persona-body">
@@ -177,7 +337,6 @@
                                 <h4>Goals</h4>
                                 <ul>
                                     <li>Access detailed, authentic gym info — route setter background, gym style, actual layout</li>
-                                    <li>Find value-for-money gyms via secondary ticket markets (e.g. Cika(次卡) apps)</li>
                                     <li>Discover quality gyms when travelling between Shanghai and Suzhou</li>
                                     <li>Share route videos and gym experiences within the climbing community</li>
                                     <li>Provide guidance to newcomers without managing complex logistics</li>
@@ -188,13 +347,12 @@
                                 <ul>
                                     <li>Review platforms (Xiaohongshu(小红书), Dazhong Dianping(大众点评)) are full of ads or too vague — no per-gym star ratings</li>
                                     <li>Gym style and route quality can only be assessed through climber word-of-mouth</li>
-                                    <li>Cika(次卡) tools list discounted tickets but have no venue ratings or credibility signals</li>
-                                    <li>No platform centralises gym search, pricing, and honest community reviews in one place</li>
+                                    <li>No platform centralises gym search and honest community reviews in one place</li>
                                 </ul>
                             </div>
                             <div class="persona-bio">
                                 <h4>Bio</h4>
-                                <p>Marcus has been climbing for nearly two years, primarily bouldering indoors across Shanghai and Suzhou. He holds a government-issued instructor certificate and informally coaches club newcomers. He uses a niche WeChat mini-program (Cika(次卡)) to find discounted gym passes but finds it lacks ratings or honest reviews. He is frustrated by how scattered and promotion-heavy gym information is online — real knowledge only travels through the climbing community. He rarely needs partner-matching as he prefers to climb solo, but cares deeply about route setter identity, venue style, and area size before committing to a new gym. With Go Climbers, Marcus can browse verified gym profiles with community ratings, find the best-value passes, and contribute his expertise to help others discover quality venues.</p>
+                                <p>Marcus has been climbing for nearly two years, primarily bouldering indoors across Shanghai and Suzhou. He holds a government-issued instructor certificate and informally coaches club newcomers. He is frustrated by how scattered and promotion-heavy gym information is online — real knowledge only travels through the climbing community. He rarely needs partner-matching as he prefers to climb solo, but cares deeply about route setter identity, venue style, and area size before committing to a new gym. With Go Climbers, Marcus can browse verified gym profiles with community ratings and contribute his expertise to help others discover quality venues.</p>
                             </div>
                         </div>
                         <div class="persona-right">
@@ -202,23 +360,22 @@
                                 <h4>Motivation</h4>
                                 <div class="bar-item"><span>Route Quality</span><div class="bar-track"><div class="bar-fill" style="width: 95%"></div></div></div>
                                 <div class="bar-item"><span>Self-growth</span><div class="bar-track"><div class="bar-fill" style="width: 85%"></div></div></div>
-                                <div class="bar-item"><span>Value</span><div class="bar-track"><div class="bar-fill" style="width: 85%"></div></div></div>
                                 <div class="bar-item"><span>Community</span><div class="bar-track"><div class="bar-fill" style="width: 70%"></div></div></div>
                                 <div class="bar-item"><span>Competition</span><div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div></div>
                             </div>
                             <div class="persona-bars">
                                 <h4>Technology Usage</h4>
                                 <div class="bar-item"><span>Smartphone</span><div class="bar-track"><div class="bar-fill secondary" style="width: 90%"></div></div></div>
-                                <div class="bar-item"><span>Cika(次卡) App</span><div class="bar-track"><div class="bar-fill secondary" style="width: 70%"></div></div></div>
                                 <div class="bar-item"><span>Social Media</span><div class="bar-track"><div class="bar-fill secondary" style="width: 65%"></div></div></div>
+                                <div class="bar-item"><span>Video / Recording</span><div class="bar-track"><div class="bar-fill secondary" style="width: 60%"></div></div></div>
                                 <div class="bar-item"><span>Smartwatch</span><div class="bar-track"><div class="bar-fill secondary" style="width: 20%"></div></div></div>
                             </div>
                             <div class="persona-bars">
                                 <h4>Preferred Channels</h4>
                                 <div class="bar-item"><span>Word of Mouth</span><div class="bar-track"><div class="bar-fill" style="width: 95%"></div></div></div>
-                                <div class="bar-item"><span>Cika(次卡) / Deals</span><div class="bar-track"><div class="bar-fill" style="width: 80%"></div></div></div>
+                                <div class="bar-item"><span>Climbing Community</span><div class="bar-track"><div class="bar-fill" style="width: 75%"></div></div></div>
                                 <div class="bar-item"><span>Xiaohongshu</span><div class="bar-track"><div class="bar-fill" style="width: 50%"></div></div></div>
-                                <div class="bar-item"><span>Review Apps</span><div class="bar-track"><div class="bar-fill" style="width: 30%"></div></div></div>
+                                <div class="bar-item"><span>Review Apps</span><div class="bar-track"><div class="bar-fill" style="width: 35%"></div></div></div>
                             </div>
                         </div>
                     </div>
@@ -226,51 +383,377 @@
             </div>
         </section>
 
+        <!-- ═══════════════════════════════════════════════
+             SECTION 2 · USER REQUIREMENTS
+        ════════════════════════════════════════════════ -->
         <section id="journey">
             <div class="container">
-                <h2>Customer Journey Map</h2>
-                <p class="journey-intro">The journey map below traces our primary persona <strong>Anne</strong>'s bouldering app experience across four stages — Awareness, Consideration, Service, and Loyalty — capturing her actions, thoughts &amp; pains, emotional curve, and the design opportunities they reveal.</p>
+                <div class="section-tag">Section 2 · User Requirements</div>
+                <h2>User Journey Map</h2>
+                <p class="journey-intro">The journey map below traces our primary persona <strong>Emma</strong>'s experience across five stages — Discovery, Exploration, Socializing, Reflection, and Growth — capturing her touchpoints, actions, pain points, emotional curve, and the design opportunities each stage reveals.</p>
                 <div class="journey-map-wrapper">
-                    <img src="assets/images/user-journey-map.jpg" alt="Climbing App User Journey Map — Anne's bouldering app experience across Awareness, Consideration, Service, and Loyalty stages" class="journey-map-img">
+                    <img src="assets/images/journey_map_v3.svg" alt="Climbing App User Journey Map — Emma's experience across Discovery, Exploration, Socializing, Reflection, and Growth stages" class="journey-map-img">
                 </div>
-                <div class="journey-highlights">
+
+                <p class="journey-design-label">How ClimBuddy responds at each stage — the design decisions we made, and why.</p>
+                <div class="journey-highlights five-col">
+                    <!-- Stage 1 -->
                     <div class="journey-highlight-card">
-                        <div class="journey-stage-label awareness">Awareness</div>
-                        <p>Anne discovers the app via Xiaohongshu and club leaders, yet struggles to separate ads from real reviews. <strong>Opportunity:</strong> Gym Directory with verified route-setter backgrounds and cleanliness details.</p>
+                        <div class="journey-stage-label awareness">1. Discovery</div>
+                        <p class="journey-insight"><em>"Emma felt socially hesitant — existing content gave her no reason to trust an unfamiliar app."</em></p>
+                        <div class="journey-feature-block">
+                            <span class="feature-chip">Onboarding with social proof</span>
+                            <p>ClimBuddy's first screen shows active community stats (nearby climbers, recent match stories) before asking for any signup details. This mirrors the social media context Emma already trusts, easing the first impression.</p>
+                        </div>
+                        <div class="journey-design-note">
+                            <strong>Why this, not a product tour?</strong> Tutorial carousels are skipped 80% of the time. Real peer activity is far more persuasive for hesitant newcomers.
+                        </div>
                     </div>
+                    <!-- Stage 2 -->
                     <div class="journey-highlight-card">
-                        <div class="journey-stage-label consideration">Consideration</div>
-                        <p>Overwhelmed by WeChat messages and unsure how to pick a gym, beginners fear going alone. <strong>Opportunity:</strong> Smart Filtering and a Rating Mechanism to match gyms and partners by location, time, and style.</p>
+                        <div class="journey-stage-label consideration">2. Exploration</div>
+                        <p class="journey-insight"><em>"Emma had to cross-reference Dianping, Xiaohongshu, and WeChat just to evaluate one gym."</em></p>
+                        <div class="journey-feature-block">
+                            <span class="feature-chip">Structured Gym Directory</span>
+                            <p>Each gym card surfaces what climbers actually decide on — V-grade range, beginner-friendliness score, route setter profile, and all-in price — not what gyms want to promote. Filter by proximity, level, and coach availability.</p>
+                        </div>
+                        <div class="journey-design-note">
+                            <strong>Why structured data, not open reviews?</strong> Unstructured reviews are noisy and promotional. Fixed fields force gyms to be comparable and accountable.
+                        </div>
                     </div>
+                    <!-- Stage 3 -->
                     <div class="journey-highlight-card">
-                        <div class="journey-stage-label service">Service</div>
-                        <p>Auto check-in works well, but partner no-shows cause frustration. <strong>Opportunity:</strong> Flake Compensation — a check-in/credit score system with coupon compensation for no-shows.</p>
+                        <div class="journey-stage-label service">3. Socializing</div>
+                        <p class="journey-insight"><em>"The real barrier wasn't finding partners — it was trusting strangers enough to show up."</em></p>
+                        <div class="journey-feature-block">
+                            <span class="feature-chip">Credit Score + Swipe Matching</span>
+                            <p>Partners are surfaced by skill-level and schedule fit, then revealed one card at a time via swipe. A credit score (built from punctuality and feedback) makes reliability visible without punishing users publicly.</p>
+                        </div>
+                        <div class="journey-design-note">
+                            <strong>Why gamify trust, not verify identity?</strong> Hard ID checks create friction. Reputation built through behaviour is more nuanced and sustains long-term community health.
+                        </div>
                     </div>
+                    <!-- Stage 4 -->
                     <div class="journey-highlight-card">
-                        <div class="journey-stage-label loyalty">Loyalty</div>
-                        <p>Anne re-purchases passes and shares content, but risks injury from advancing too fast. <strong>Opportunity:</strong> Specialized Guidelines — functional training videos and advanced milestone awards.</p>
+                        <div class="journey-stage-label loyalty">4. Reflection</div>
+                        <p class="journey-insight"><em>"Emma could feel herself improving but had no way to measure or articulate it."</em></p>
+                        <div class="journey-feature-block">
+                            <span class="feature-chip">AI Coach + Video Upload</span>
+                            <p>After each session, Emma uploads a route attempt video. The AI Coach annotates posture, flags foot placement issues, and suggests one drillable focus for next time. Wearable data (heart rate, grip effort) adds objective context.</p>
+                        </div>
+                        <div class="journey-design-note">
+                            <strong>Why light AI, not full automation?</strong> Over-coaching overwhelms beginners. One focused cue per session is backed by motor-learning research as more effective than a full report.
+                        </div>
+                    </div>
+                    <!-- Stage 5 -->
+                    <div class="journey-highlight-card">
+                        <div class="journey-stage-label growth">5. Growth</div>
+                        <p class="journey-insight"><em>"Progress felt invisible — there was nothing to show for weeks of effort."</em></p>
+                        <div class="journey-feature-block">
+                            <span class="feature-chip">V-Level Badges + Community Wall</span>
+                            <p>Each verified V-grade unlock earns a shareable badge that appears on Emma's public profile and the community feed. Certifications are tiered (Beginner → Intermediate → Advanced) to maintain long-term goal visibility.</p>
+                        </div>
+                        <div class="journey-design-note">
+                            <strong>Why public badges, not private logs?</strong> Social proof of progress (seen by peers) is significantly more motivating than personal record-keeping alone, especially for community-driven sports.
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="references">
+        <section id="requirements-list">
             <div class="container">
-                <h2>AI References</h2>
-                <ol>
-                    <li>Claude (Anthropic). <em>Claude Sonnet 4.5.</em> Used for generating the website HTML/CSS code structure, layout design, and content organization. Accessed March 2026.</li>
-                    <li>Doubao (ByteDance). <em>Doubao Client.</em> Used for generating user persona profile images (Emma Chen and Marcus Li). Accessed March 2026.</li>
-                </ol>
+                <h2>Requirements List</h2>
+                <p style="text-align:center;color:#666;max-width:700px;margin:0 auto 2rem;font-size:0.97rem;">Three must-haves derived from user research, each defining how ClimBuddy must satisfy its core needs while remaining <strong>"Playful"</strong>.</p>
+                <ul class="requirements-list">
+                    <li>
+                        <span class="req-source">User Need: Better Partner Matching</span>
+                        <strong>Skill-Matched, Schedule-Aware Partner Discovery</strong>
+                        Users value meeting climbers at a <em>similar level</em> with <em>overlapping free time</em> — not just proximity. The system must filter partners by V-grade range and weekly availability, then surface them through a swipe-card interface that turns a logistical chore into a low-pressure, playful decision. A credit-score layer makes trust-building feel like a reputation game, not a background check.
+                    </li>
+                    <li>
+                        <span class="req-source">User Need: Clearer Gym Information</span>
+                        <strong>Structured, Comparable Gym Cards</strong>
+                        Users decide on gyms based on <em>price, distance, and environment</em> — but existing platforms bury this behind ads or vague reviews. Every gym card must expose these three anchors as scannable, comparable fields (not free text), alongside a beginner-friendliness score and route setter profile. This turns gym discovery from a research task into an exploratory browse — inherently more playful.
+                    </li>
+                    <li>
+                        <span class="req-source">User Need: More Connected Training Flow</span>
+                        <strong>Closed-Loop Progress Feedback</strong>
+                        Users want training <em>data, content, and feedback</em> to be connected — not siloed across a wearable app, a coach's WeChat, and a generic log. The system must link each climbing session (wearable data + video upload) to an AI Coach response, which in turn unlocks the next V-level milestone badge. This closed loop makes progress feel like a game progression system, sustaining motivation across sessions.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="evidence">
+            <div class="container">
+                <h2>Evidence of Life</h2>
+                <!-- 5 photos or short clip videos of group interviewing a potential user or observing the site -->
+                <div class="evidence-grid">
+                    <!-- 5 × .evidence-item cards go here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             SECTION 3 · IDEATION & ALTERNATIVES
+        ════════════════════════════════════════════════ -->
+        <section id="crazy-eights">
+            <div class="container">
+                <div class="section-tag">Section 3 · Ideation &amp; Alternatives</div>
+                <h2>The "Crazy Eights"</h2>
+                <!-- 8 rapid hand-drawn sketch photos -->
+                <div class="sketches-grid">
+                    <!-- 8 × .sketch-item cards go here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="design-alternatives">
+            <div class="container">
+                <h2>Design Alternatives</h2>
+                <p style="text-align:center;color:#666;max-width:700px;margin:0 auto 2rem;font-size:0.97rem;">Each alternative maps directly to one user requirement — showing what we considered, what we chose, and why.</p>
+                <div class="alternatives-grid">
+
+                    <div class="alternative-card">
+                        <span class="alt-req-tag">Req: Better Partner Matching</span>
+                        <h3>How to Surface Compatible Partners</h3>
+                        <div class="alt-option rejected">
+                            <span class="opt-label">Rejected</span>
+                            <strong>Open Community Browse</strong> — list all nearby climbers on a map or scrollable feed; users filter manually by level and location.
+                        </div>
+                        <div class="alt-option chosen">
+                            <span class="opt-label">Chosen</span>
+                            <strong>Swipe-Based Card Matching</strong> — algorithm pre-filters by skill level and shared free-time windows, then serves one curated card at a time.
+                        </div>
+                        <p class="alt-reason">Open lists shift the matching burden to the user and amplify social anxiety — scrolling through strangers' profiles feels evaluative and public. Swipe mechanics pre-qualify matches so every card shown is already relevant, reducing decision fatigue and making the interaction feel light and fun.</p>
+                    </div>
+
+                    <div class="alternative-card">
+                        <span class="alt-req-tag">Req: Clearer Gym Information</span>
+                        <h3>How to Present Gym Data</h3>
+                        <div class="alt-option rejected">
+                            <span class="opt-label">Rejected</span>
+                            <strong>Open Review Feed</strong> — aggregate user-written reviews (Dianping / Xiaohongshu style), sorted by recency or likes, with freeform text search.
+                        </div>
+                        <div class="alt-option chosen">
+                            <span class="opt-label">Chosen</span>
+                            <strong>Structured Gym Cards</strong> — fixed fields for price, distance, beginner-friendliness score, V-grade range, and route setter profile; filterable and comparable side-by-side.
+                        </div>
+                        <p class="alt-reason">Freeform reviews are promotional-heavy and hard to compare. Fixed fields force gyms to supply exactly what climbers decide on — price, distance, environment — making each card immediately scannable and the overall discovery experience exploratory rather than exhaustive.</p>
+                    </div>
+
+                    <div class="alternative-card">
+                        <span class="alt-req-tag">Req: More Connected Training Flow</span>
+                        <h3>How to Close the Feedback Loop</h3>
+                        <div class="alt-option rejected">
+                            <span class="opt-label">Rejected</span>
+                            <strong>Full AI Personal Trainer</strong> — real-time camera movement analysis, auto-generated weekly programmes, live voice coaching during sessions.
+                        </div>
+                        <div class="alt-option chosen">
+                            <span class="opt-label">Chosen</span>
+                            <strong>Integrated Light AI Coach</strong> — session data (wearable + video upload) feeds one focused AI tip per session, which connects directly to the next milestone badge unlock.
+                        </div>
+                        <p class="alt-reason">A full AI trainer is technically unreliable and overwhelms beginners with volume. One targeted cue per session — aligned with motor-learning research — is more effective. Crucially, linking the AI response to a badge unlock closes the data→content→feedback loop users asked for, turning training into a progression system rather than isolated logging.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="lofi-prototype">
+            <div class="container">
+                <h2>Low-Fi Prototype</h2>
+                <!-- Clickable Figma prototype link -->
+                <div class="prototype-link-box">
+                    <!-- <a href="FIGMA_URL" target="_blank" rel="noopener">View Figma Prototype →</a> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             SECTION 4 · TECHNICAL IMPLEMENTATION
+        ════════════════════════════════════════════════ -->
+        <section id="system-architecture">
+            <div class="container">
+                <div class="section-tag">Section 4 · Technical Implementation</div>
+                <h2>System Architecture</h2>
+                <!-- Diagram showing how the Web App handles data -->
+                <div class="architecture-diagram">
+                    <!-- Architecture diagram / image goes here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="hifi-prototype">
+            <div class="container">
+                <h2>High-Fi Prototype</h2>
+                <!-- URL to hosted system (e.g. yourproject.github.io or vercel.app) -->
+                <div class="prototype-link-box">
+                    <!-- <a href="HOSTED_URL" target="_blank" rel="noopener">View Live Demo →</a> -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contributions">
+            <div class="container">
+                <h2>Individual Contributions</h2>
+                <!-- Table: each member × what they built (Code / UI Design / Content / Testing) -->
+                <div class="contributions-table-wrapper">
+                    <table class="contributions-table">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>Code</th>
+                                <th>UI Design</th>
+                                <th>Content</th>
+                                <th>Testing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Rui Zheng</td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Jiutian Chang</td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Zhixian Zhou</td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Xinyi Xiao</td><td></td><td></td><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             SECTION 5 · EVALUATION & REFLECTION
+        ════════════════════════════════════════════════ -->
+        <section id="usability-testing">
+            <div class="container">
+                <div class="section-tag">Section 5 · Evaluation &amp; Reflection</div>
+                <h2>Usability Testing</h2>
+                <p style="text-align:center;color:#666;max-width:680px;margin:0 auto 2rem;font-size:0.97rem;">We conducted pilot testing with <strong>6 users</strong> on the Alpha version of ClimBuddy, covering all four core modules. Below are results from three representative testers.</p>
+                <div class="testing-results">
+                    <div class="tester-card">
+                        <h3>Tester 1</h3>
+                        <p class="tester-profile">Female · University student · Complete beginner</p>
+                        <div class="tester-findings">
+                            <h4 class="positive">Strengths Observed</h4>
+                            <ul>
+                                <li>Found the swipe partner-matching intuitive and fun on first use</li>
+                                <li>Onboarding flow clearly explained app purpose within 2 screens</li>
+                                <li>Gym Directory filters (beginner-friendly, price range) met her main needs</li>
+                            </ul>
+                            <h4 class="negative">Issues Found</h4>
+                            <ul>
+                                <li>AI Coach responses felt generic — didn't adapt to her specific question</li>
+                                <li>Credit-score system needed a tooltip; she didn't understand it initially</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tester-card">
+                        <h3>Tester 2</h3>
+                        <p class="tester-profile">Male · Working professional · Intermediate climber (~1 year)</p>
+                        <div class="tester-findings">
+                            <h4 class="positive">Strengths Observed</h4>
+                            <ul>
+                                <li>Progress tracking (V-level badges) was immediately motivating</li>
+                                <li>Coach booking flow was clear and logical — completed in under 3 taps</li>
+                                <li>Swipe filters (skill level, availability) gave him relevant matches quickly</li>
+                            </ul>
+                            <h4 class="negative">Issues Found</h4>
+                            <ul>
+                                <li>Main dashboard felt static — wanted more interactive feedback animations</li>
+                                <li>AI Coach suggestions were too basic for his intermediate level</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tester-card">
+                        <h3>Tester 3</h3>
+                        <p class="tester-profile">Female · Part-time coach · Advanced climber (~2 years)</p>
+                        <div class="tester-findings">
+                            <h4 class="positive">Strengths Observed</h4>
+                            <ul>
+                                <li>Gym Directory with community ratings matched her expectations for quality info</li>
+                                <li>Appreciated the coach profile verification badge as a trust signal</li>
+                                <li>Video-upload feature for route review was well-placed in the journey flow</li>
+                            </ul>
+                            <h4 class="negative">Issues Found</h4>
+                            <ul>
+                                <li>AI Coach lacked depth — responses not intelligent enough for advanced users</li>
+                                <li>Some interactions (e.g., confirming a booking) had redundant confirmation screens</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testing-summary">
+                    <h3>Aggregate Findings</h3>
+                    <div class="summary-cols">
+                        <div class="summary-col strengths">
+                            <h4>Strengths</h4>
+                            <ul>
+                                <li>Comprehensive core features well-received across all experience levels</li>
+                                <li>Clear, logical interface — users completed key flows without guidance</li>
+                                <li>Swipe matching and smart filters made partner discovery efficient and fun</li>
+                                <li>Gym directory and coach booking were praised for clarity and speed</li>
+                                <li>Gamified badge system created immediate motivation to engage further</li>
+                            </ul>
+                        </div>
+                        <div class="summary-col improvements">
+                            <h4>Areas for Improvement</h4>
+                            <ul>
+                                <li>Main dashboard needs richer micro-interactions to feel more "alive"</li>
+                                <li>AI Coach intelligence must be deepened — current responses are too surface-level</li>
+                                <li>Credit-score mechanic requires clearer in-app explanation for new users</li>
+                                <li>Reduce redundant confirmation steps in booking and matching flows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="iterative-refinement">
+            <div class="container">
+                <h2>Iterative Refinement</h2>
+                <!-- "Before and After" screenshots showing a change made based on user feedback -->
+                <div class="before-after-grid">
+                    <div class="before-after-card">
+                        <h3>Before</h3>
+                        <!-- screenshot placeholder -->
+                    </div>
+                    <div class="before-after-card">
+                        <h3>After</h3>
+                        <!-- screenshot placeholder -->
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="tech-reflection">
             <div class="container">
-                <h2>Technical Reflection</h2>
+                <h2>Final Reflection</h2>
                 <p>This website was built with the assistance of Claude (Anthropic) for technical implementation. The AI was used solely for generating HTML/CSS code structure, layout design, and deployment configuration.</p>
                 <p><strong>Human-centric design logic:</strong> All core design decisions—including user research findings, persona development, feature prioritization, and product motivation—were defined by the team members. The human-centric design framework that drives Go Climbers was original team work.</p>
                 <p><strong>Verification methods:</strong> All generated code was reviewed for correctness, tested for responsive behavior across multiple viewport sizes, and checked for compliance with GitHub Pages requirements (relative paths, .nojekyll file, no build dependencies).</p>
                 <p><strong>Ethical considerations:</strong> AI-generated content was reviewed and validated against the project requirements. All member information was provided by the team and used verbatim.</p>
+            </div>
+        </section>
+
+        <section id="references">
+            <div class="container">
+                <h2>References</h2>
+                <h3 style="font-size:1.1rem;margin-bottom:0.8rem;color:var(--color-accent-primary);">Academic Papers</h3>
+                <ol style="font-size:0.92rem;line-height:1.8;color:#444;padding-left:1.4rem;margin-bottom:2rem;">
+                    <li>S. O'Mara and M. S. Mahmud, "Addressing grading bias in rock climbing: Machine and deep learning approaches," <em>Frontiers in Sports and Active Living</em>, vol. 7, Art. no. 1512610, Jan. 2025.</li>
+                    <li>M. Yan et al., "ClimbingCap: Multi-modal dataset method for rock climbing in world coordinate," in <em>Proc. IEEE/CVF Conf. Computer Vision and Pattern Recognition (CVPR)</em>, 2025, pp. xx–xx.</li>
+                    <li>L. Sun, Y. Zheng, Q. Jiang, X. Shi, M. Romero, and R. Guerese, "Sound-assisted climbing: Exploring bouldering performance through auditory guidance," in <em>Proc. SportsHCI 2025: Annu. Conf. Human-Computer Interaction and Sports</em>, Enschede, Netherlands, Nov. 2025, pp. xx–xx, doi: 10.1145/3749383.3749402.</li>
+                    <li>C. Lister, J. H. West, B. Cannon, T. Sax, and D. Brodegard, "Just a fad? Gamification in health and fitness apps," <em>JMIR Serious Games</em>, vol. 2, no. 2, p. e9, 2014.</li>
+                </ol>
+                <h3 style="font-size:1.1rem;margin-bottom:0.8rem;color:var(--color-accent-primary);">AI Tools Used</h3>
+                <ol style="font-size:0.92rem;line-height:1.8;color:#444;padding-left:1.4rem;">
+                    <li>Claude (Anthropic). <em>Claude Sonnet 4.5.</em> Used for generating the website HTML/CSS code structure, layout design, and content organization. Accessed March–April 2026.</li>
+                    <li>Doubao (ByteDance). <em>Doubao Client.</em> Used for generating user persona profile images (Emma Chen and Marcus Li). Accessed March 2026.</li>
+                </ol>
             </div>
         </section>
     </main>
