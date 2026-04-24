@@ -1122,3 +1122,227 @@ ul.requirements-list li strong {
     color: #999;
     font-family: monospace;
 }
+
+/* ===== Evidence of Life Carousel ===== */
+.evidence-carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: none;
+    flex-direction: column;
+}
+
+.carousel-slide.active {
+    display: flex;
+}
+
+.evidence-media {
+    width: 100%;
+    min-height: 300px;
+    max-height: 500px;
+    padding: 2rem;
+    background: #f5f3ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.evidence-media img {
+    max-width: 100%;
+    max-height: 450px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.video-container {
+    background: #1a1f2e;
+}
+
+.video-container video {
+    max-width: 100%;
+    max-height: 450px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.evidence-caption {
+    padding: 1.5rem 2rem;
+    text-align: center;
+    background: #fff;
+}
+
+.evidence-caption h3 {
+    font-size: 1.3rem;
+    color: var(--color-bg-header);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.evidence-caption p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Carousel Navigation */
+.carousel-arrow {
+    position: absolute;
+    top: 250px;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-bg-header);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-arrow:hover {
+    background: var(--color-accent-primary);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-prev {
+    left: 1rem;
+}
+
+.carousel-next {
+    right: 1rem;
+}
+
+/* Pagination Dots */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 0 1.5rem;
+    background: #fff;
+}
+
+.carousel-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: #d0d0d0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+    background: var(--color-accent-primary);
+    transform: scale(1.2);
+}
+
+.carousel-dots .dot:hover {
+    background: var(--color-accent-secondary);
+}
+
+/* Slide Counter */
+.carousel-counter {
+    position: absolute;
+    bottom: 5.5rem;
+    right: 2rem;
+    background: rgba(26, 31, 46, 0.85);
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    z-index: 5;
+}
+
+.carousel-counter .current {
+    color: var(--color-accent-primary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .evidence-media {
+        height: 350px;
+    }
+    
+    .carousel-arrow {
+        top: 175px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-prev {
+        left: 0.5rem;
+    }
+    
+    .carousel-next {
+        right: 0.5rem;
+    }
+    
+    .evidence-caption {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .evidence-caption h3 {
+        font-size: 1.1rem;
+    }
+    
+    .evidence-caption p {
+        font-size: 0.9rem;
+    }
+    
+    .carousel-counter {
+        bottom: 5rem;
+        right: 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .evidence-media {
+        height: 280px;
+    }
+    
+    .carousel-arrow {
+        top: 140px;
+        width: 36px;
+        height: 36px;
+    }
+    
+    .carousel-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+}
