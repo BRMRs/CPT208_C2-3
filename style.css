@@ -1123,6 +1123,23 @@ ul.requirements-list li strong {
     font-family: monospace;
 }
 
+.lofi-diagram {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.lofi-diagram img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
 /* ===== Evidence of Life Carousel ===== */
 .evidence-carousel {
     position: relative;
