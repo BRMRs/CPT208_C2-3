@@ -1,10 +1,10 @@
-# Go Climbers — CPT208 Group C2-3 Portfolio
+# Climbuddy — CPT208 Group C2-3 Portfolio
 
 A university project portfolio for CPT208 (Human-Computer Interaction Design), Group C2-3.
 
-## About Go Climbers
+## About Climbuddy
 
-Go Climbers is a mobile and wearable app designed for the climbing community. It enables climbers to find partners at their skill level, book certified coaches, discover nearby climbing venues, and track their performance using wearable devices (heart rate, climb count, calories burned).
+Climbuddy is a mobile and wearable app designed for the climbing community. It enables climbers to find partners at their skill level, book certified coaches, discover nearby climbing venues, and track their performance using wearable devices (heart rate, climb count, calories burned).
 
 **Target Users**: Climbers, coaches, and climbing gym owners  
 **Platform**: Mobile + Wearable devices  
