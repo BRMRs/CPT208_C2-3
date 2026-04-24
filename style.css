@@ -1140,6 +1140,23 @@ ul.requirements-list li strong {
     display: block;
 }
 
+.architecture-diagram {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.architecture-diagram img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
 /* ===== Evidence of Life Carousel ===== */
 .evidence-carousel {
     position: relative;
